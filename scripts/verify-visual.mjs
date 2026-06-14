@@ -75,6 +75,23 @@ try {
   );
   await mobile.screenshot({ path: artifactPath("mobile-dashboard.png"), fullPage: false });
 
+  await mobile.getByTestId("open-periodic-table").click();
+  await mobile.getByTestId("periodic-H").waitFor({ state: "visible", timeout: 5000 });
+  const mobilePeriodicMetrics = await collectMobilePeriodicMetrics(mobile);
+  assert(mobilePeriodicMetrics.cellCount === 118, `Mobile periodic table should render 118 elements, got ${mobilePeriodicMetrics.cellCount}.`);
+  assert(
+    mobilePeriodicMetrics.scrollWidth > mobilePeriodicMetrics.clientWidth,
+    `Mobile periodic table should have horizontal scroll. scrollWidth=${mobilePeriodicMetrics.scrollWidth}, clientWidth=${mobilePeriodicMetrics.clientWidth}`
+  );
+  assert(
+    mobilePeriodicMetrics.canScrollToEnd,
+    `Mobile periodic table should scroll horizontally to the far-right elements. before=${mobilePeriodicMetrics.beforeScrollLeft}, after=${mobilePeriodicMetrics.afterScrollLeft}`
+  );
+  await mobile.getByTestId("periodic-Og").click();
+  await mobile.waitForTimeout(600);
+  const mobileSelectedText = await mobile.locator(".element-identity").innerText();
+  assert(mobileSelectedText.includes("Og"), "Selecting Oganesson from mobile periodic table should update the dashboard.");
+
   assert(desktopErrors.length === 0, `Desktop console errors: ${desktopErrors.join("\n")}`);
   assert(mobileErrors.length === 0, `Mobile console errors: ${mobileErrors.join("\n")}`);
 
@@ -85,6 +102,7 @@ try {
         desktopMetrics,
         moleculeMetrics,
         mobileMetrics,
+        mobilePeriodicMetrics,
         screenshots: [
           "artifacts/desktop-dashboard.png",
           "artifacts/desktop-periodic-full.png",
@@ -98,6 +116,28 @@ try {
   );
 } finally {
   await browser.close();
+}
+
+async function collectMobilePeriodicMetrics(page) {
+  return page.evaluate(() => {
+    const scroller = document.querySelector(".periodic-scroll");
+    const grid = document.querySelector(".periodic-grid");
+    const beforeScrollLeft = scroller?.scrollLeft ?? 0;
+
+    if (scroller) {
+      scroller.scrollLeft = scroller.scrollWidth;
+    }
+
+    return {
+      cellCount: document.querySelectorAll("[data-testid^='periodic-']").length,
+      clientWidth: scroller?.clientWidth ?? 0,
+      scrollWidth: scroller?.scrollWidth ?? 0,
+      beforeScrollLeft,
+      afterScrollLeft: scroller?.scrollLeft ?? 0,
+      canScrollToEnd: Boolean(scroller && scroller.scrollLeft > beforeScrollLeft),
+      gridWidth: grid ? Math.round(grid.getBoundingClientRect().width) : 0
+    };
+  });
 }
 
 function collectConsoleErrors(page) {
