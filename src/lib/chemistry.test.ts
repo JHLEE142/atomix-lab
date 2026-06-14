@@ -4,6 +4,7 @@ import {
   getElectronShells,
   getElectronShellsFromConfiguration,
   identifyMolecule,
+  MOLECULE_RECIPES,
   summarizeAtoms
 } from "./chemistry";
 
@@ -38,6 +39,17 @@ describe("chemistry helpers", () => {
     expect(identifyMolecule(["Cl", "Na"])).toMatchObject({
       formula: "NaCl",
       name: "Sodium Chloride"
+    });
+  });
+
+  it("describes supported molecule geometry at the intended learning level", () => {
+    expect(MOLECULE_RECIPES.find((recipe) => recipe.id === "ammonia")).toMatchObject({
+      geometry: "trigonal-pyramidal",
+      description: expect.stringContaining("trigonal pyramidal")
+    });
+    expect(MOLECULE_RECIPES.find((recipe) => recipe.id === "sodium-chloride")).toMatchObject({
+      geometry: "ionic-pair",
+      description: expect.stringContaining("simplified")
     });
   });
 

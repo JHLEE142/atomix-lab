@@ -21,6 +21,12 @@ describe("periodic table element data", () => {
       expect(element.shells.reduce((total, shell) => total + shell, 0), `${element.symbol} shells`).toBe(
         element.atomicNumber
       );
+      expect(element.massNumber, `${element.symbol} representative mass number`).toBeGreaterThanOrEqual(
+        element.atomicNumber
+      );
+      expect(element.neutrons, `${element.symbol} representative neutron count`).toBe(
+        element.massNumber - element.atomicNumber
+      );
     }
   });
 
@@ -36,5 +42,18 @@ describe("periodic table element data", () => {
     expect(getElement("Ce")).toMatchObject({ period: 8, group: 4 });
     expect(getElement("Ac")).toMatchObject({ period: 7, group: 3 });
     expect(getElement("Th")).toMatchObject({ period: 9, group: 4 });
+  });
+
+  it("marks model-only radii and representative isotope values explicitly", () => {
+    expect(getElement("Og")).toMatchObject({
+      massNumber: 294,
+      neutrons: 176,
+      radiusEstimated: true
+    });
+    expect(getElement("O")).toMatchObject({
+      massNumber: 16,
+      neutrons: 8,
+      radiusEstimated: false
+    });
   });
 });

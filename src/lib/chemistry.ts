@@ -7,7 +7,7 @@ export type MoleculeRecipe = {
   koreanName: string;
   atoms: AtomCounts;
   description: string;
-  geometry: "linear" | "bent" | "trigonal" | "tetrahedral" | "diatomic" | "ionic";
+  geometry: "linear" | "bent" | "trigonal-pyramidal" | "tetrahedral" | "diatomic" | "ionic-pair";
 };
 
 export const MOLECULE_RECIPES: MoleculeRecipe[] = [
@@ -35,8 +35,8 @@ export const MOLECULE_RECIPES: MoleculeRecipe[] = [
     name: "Ammonia",
     koreanName: "암모니아",
     atoms: { N: 1, H: 3 },
-    description: "A trigonal molecule where nitrogen bonds with three hydrogens.",
-    geometry: "trigonal"
+    description: "A trigonal pyramidal molecule with a lone pair on nitrogen.",
+    geometry: "trigonal-pyramidal"
   },
   {
     id: "methane",
@@ -71,8 +71,8 @@ export const MOLECULE_RECIPES: MoleculeRecipe[] = [
     name: "Sodium Chloride",
     koreanName: "염화나트륨",
     atoms: { Na: 1, Cl: 1 },
-    description: "An ionic pair formed from sodium and chlorine.",
-    geometry: "ionic"
+    description: "A simplified ionic pair model for sodium and chloride ions.",
+    geometry: "ionic-pair"
   }
 ];
 

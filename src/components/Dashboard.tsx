@@ -28,6 +28,10 @@ export function Dashboard({
 }: DashboardProps) {
   const localizedName = language === "ko" ? element.koreanName : element.name;
   const radiusScale = Math.min(100, Math.max(6, element.radiusScale));
+  const discoveredByLabel =
+    element.discoveredBy === "PubChem source record" ? "기초 원소 데이터" : element.discoveredBy;
+  const discoveryNote =
+    element.discoveredBy === "PubChem source record" ? "발견자 세부 기록은 별도 검증 필요" : "발견 및 분리 기록";
 
   return (
     <section className="dashboard-grid">
@@ -58,7 +62,9 @@ export function Dashboard({
           </div>
           <div>
             <dt>반지름</dt>
-            <dd>{element.radiusPm} pm</dd>
+            <dd>
+              {element.radiusPm} pm{element.radiusEstimated ? " 추정" : ""}
+            </dd>
           </div>
           <div>
             <dt>전자 껍질</dt>
@@ -91,7 +97,11 @@ export function Dashboard({
           </div>
           <div>
             <h2>원자 반지름 스케일</h2>
-            <p>PubChem 원자 반지름 값을 3D 모델 비교용 상대 스케일로 표시합니다.</p>
+            <p>
+              {element.radiusEstimated
+                ? "실측 반지름이 부족한 초중원소는 3D 비교용 추정값으로 표시합니다."
+                : "원자 반지름 값을 3D 모델 비교용 상대 스케일로 표시합니다."}
+            </p>
           </div>
         </div>
 
@@ -107,11 +117,14 @@ export function Dashboard({
           <div>
             <span className="panel-kicker">
               <Atom size={14} />
-              3D Atomic Structure
+              3D Learning Model
             </span>
             <h2>
-              {element.symbol} Bohr Model
-              <span>{element.atomicNumber}p / {element.neutrons}n / {element.atomicNumber}e</span>
+              {element.symbol} Bohr-style Shell Diagram
+              <span>
+                mass #{element.massNumber}: {element.atomicNumber}p / {element.neutrons}n /{" "}
+                {element.atomicNumber}e
+              </span>
             </h2>
           </div>
 
@@ -122,7 +135,7 @@ export function Dashboard({
               onClick={onToggleOrbitalCloud}
             >
               <Sparkles size={15} />
-              오비탈 구름
+              전자 구름
             </button>
             <button className="segmented-control" type="button" onClick={onOpenPeriodicTable}>
               <Table2 size={15} />
@@ -168,8 +181,8 @@ export function Dashboard({
         <ol className="timeline">
           <li>
             <time>{element.discoveryYear}</time>
-            <strong>{element.discoveredBy}</strong>
-            <span>발견 및 분리 기록</span>
+            <strong>{discoveredByLabel}</strong>
+            <span>{discoveryNote}</span>
           </li>
           <li>
             <time>Atomic #{element.atomicNumber}</time>

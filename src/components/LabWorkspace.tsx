@@ -40,7 +40,7 @@ export function LabWorkspace({ language, activeExperiment, selectedElement, onSe
           Element Palette
         </div>
         <h1>분자 결합 실험실</h1>
-        <p>원소 버튼을 눌러 결합 공간에 추가하세요. 조합이 맞으면 3D 분자 모형으로 병합됩니다.</p>
+        <p>원소 버튼을 눌러 지원되는 대표 분자 레시피를 조립하세요. 실제 반응 조건은 단순화했습니다.</p>
 
         {activeExperiment ? (
           <div className="experiment-banner">
@@ -109,7 +109,11 @@ export function LabWorkspace({ language, activeExperiment, selectedElement, onSe
             </span>
             <h2>
               {molecule ? `${molecule.name} (${formatFormula(molecule.formula)})` : "Bonding Space"}
-              <span>{molecule ? molecule.koreanName : "Click atoms to test a recipe"}</span>
+              <span>
+                {molecule
+                  ? `${molecule.koreanName} · ${formatGeometryLabel(molecule.geometry)}`
+                  : "Click atoms to test a supported recipe"}
+              </span>
             </h2>
           </div>
 
@@ -142,6 +146,7 @@ export function LabWorkspace({ language, activeExperiment, selectedElement, onSe
                 exit={{ opacity: 0, y: -12, scale: 0.96 }}
               >
                 You made {molecule.name} ({formatFormula(molecule.formula)})
+                <small>{molecule.description}</small>
               </motion.div>
             ) : null}
           </AnimatePresence>
@@ -163,6 +168,19 @@ export function LabWorkspace({ language, activeExperiment, selectedElement, onSe
       </section>
     </section>
   );
+}
+
+function formatGeometryLabel(geometry: string): string {
+  const labels: Record<string, string> = {
+    linear: "선형",
+    bent: "굽은형",
+    "trigonal-pyramidal": "삼각뿔형",
+    tetrahedral: "정사면체형",
+    diatomic: "이원자 분자",
+    "ionic-pair": "이온쌍 단순화 모형"
+  };
+
+  return labels[geometry] ?? geometry;
 }
 
 function formatFormula(formula: string): string {

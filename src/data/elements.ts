@@ -32,7 +32,9 @@ export type ElementRecord = {
   uses: string[];
   color: string;
   shells: number[];
+  massNumber: number;
   neutrons: number;
+  radiusEstimated: boolean;
 };
 
 const rawElements = [
@@ -2868,19 +2870,59 @@ const rawElements = [
     ],
     "color": "#c4b5fd"
   }
-] satisfies Array<Omit<ElementRecord, "shells" | "neutrons">>;
+] satisfies Array<Omit<ElementRecord, "shells" | "massNumber" | "neutrons" | "radiusEstimated">>;
 
 type RawElementRecord = (typeof rawElements)[number];
 
+const representativeMassNumbers: Record<string, number> = {
+  Tc: 97,
+  Pm: 145,
+  Po: 209,
+  At: 210,
+  Rn: 222,
+  Fr: 223,
+  Ra: 226,
+  Ac: 227,
+  Np: 237,
+  Pu: 244,
+  Am: 243,
+  Cm: 247,
+  Bk: 247,
+  Cf: 251,
+  Es: 252,
+  Fm: 257,
+  Md: 258,
+  No: 259,
+  Lr: 262,
+  Rf: 267,
+  Db: 270,
+  Sg: 269,
+  Bh: 270,
+  Hs: 270,
+  Mt: 278,
+  Ds: 281,
+  Rg: 281,
+  Cn: 285,
+  Nh: 286,
+  Fl: 289,
+  Mc: 289,
+  Lv: 293,
+  Ts: 293,
+  Og: 294
+};
+
 export const elements: ElementRecord[] = rawElements.map((element) => {
   const radiusPm = normalizeRadiusPm(element);
+  const massNumber = representativeMassNumbers[element.symbol] ?? Math.round(element.atomicMass);
 
   return {
     ...element,
     radiusPm,
     radiusScale: getRadiusScale(radiusPm),
     shells: getElectronShellsFromConfiguration(element.electronConfiguration),
-    neutrons: Math.max(0, Math.round(element.atomicMass) - element.atomicNumber)
+    massNumber,
+    neutrons: Math.max(0, massNumber - element.atomicNumber),
+    radiusEstimated: element.radiusPm <= 0
   };
 });
 
