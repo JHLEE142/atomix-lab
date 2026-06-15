@@ -44,7 +44,7 @@ try {
   assert(ogMetrics.canvases[0]?.nonBlackSamples > 0, "Oganesson atom canvas should not be blank.");
 
   await desktop.getByTestId("start-today-experiment").click();
-  await desktop.getByText("오늘의 실험: H₂O 만들기").waitFor({ state: "visible", timeout: 5000 });
+  await desktop.getByText("Today's Experiment").waitFor({ state: "visible", timeout: 5000 });
   await desktop.getByTestId("palette-H").click();
   await desktop.getByTestId("palette-O").click();
   await desktop.getByTestId("palette-H").click();

@@ -28,6 +28,9 @@ export type ElementRecord = {
   radiusScale: number;
   discoveryYear: string;
   discoveredBy: string;
+  discoveryNote: string;
+  discoverySourceUrl: string;
+  elementSourceUrl: string;
   summary: string;
   uses: string[];
   color: string;
@@ -52,8 +55,6 @@ const rawElements = [
     "standardState": "Gas",
     "electronConfiguration": "1s1",
     "radiusScale": 34,
-    "discoveryYear": "1766",
-    "discoveredBy": "PubChem source record",
     "summary": "Hydrogen (H) is a nonmetal element with atomic number 1. Its electron configuration is 1s1.",
     "uses": [
       "생명 화학",
@@ -76,8 +77,6 @@ const rawElements = [
     "standardState": "Gas",
     "electronConfiguration": "1s2",
     "radiusScale": 40,
-    "discoveryYear": "1868",
-    "discoveredBy": "PubChem source record",
     "summary": "Helium (He) is a noble gas element with atomic number 2. Its electron configuration is 1s2.",
     "uses": [
       "비활성 기체",
@@ -100,8 +99,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[He]2s1",
     "radiusScale": 52,
-    "discoveryYear": "1817",
-    "discoveredBy": "PubChem source record",
     "summary": "Lithium (Li) is a alkali metal element with atomic number 3. Its electron configuration is [He]2s1.",
     "uses": [
       "이온 결합",
@@ -124,8 +121,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[He]2s2",
     "radiusScale": 44,
-    "discoveryYear": "1798",
-    "discoveredBy": "PubChem source record",
     "summary": "Beryllium (Be) is a alkaline earth metal element with atomic number 4. Its electron configuration is [He]2s2.",
     "uses": [
       "금속 반응성",
@@ -148,8 +143,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[He]2s2 2p1",
     "radiusScale": 55,
-    "discoveryYear": "1808",
-    "discoveredBy": "PubChem source record",
     "summary": "Boron (B) is a metalloid element with atomic number 5. Its electron configuration is [He]2s2 2p1.",
     "uses": [
       "반도체 경향",
@@ -172,8 +165,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[He]2s2 2p2",
     "radiusScale": 49,
-    "discoveryYear": "Ancient",
-    "discoveredBy": "Known since antiquity",
     "summary": "Carbon (C) is a nonmetal element with atomic number 6. Its electron configuration is [He]2s2 2p2.",
     "uses": [
       "생명 화학",
@@ -196,8 +187,6 @@ const rawElements = [
     "standardState": "Gas",
     "electronConfiguration": "[He] 2s2 2p3",
     "radiusScale": 44,
-    "discoveryYear": "1772",
-    "discoveredBy": "PubChem source record",
     "summary": "Nitrogen (N) is a nonmetal element with atomic number 7. Its electron configuration is [He] 2s2 2p3.",
     "uses": [
       "생명 화학",
@@ -220,8 +209,6 @@ const rawElements = [
     "standardState": "Gas",
     "electronConfiguration": "[He]2s2 2p4",
     "radiusScale": 43,
-    "discoveryYear": "1774",
-    "discoveredBy": "PubChem source record",
     "summary": "Oxygen (O) is a nonmetal element with atomic number 8. Its electron configuration is [He]2s2 2p4.",
     "uses": [
       "생명 화학",
@@ -244,8 +231,6 @@ const rawElements = [
     "standardState": "Gas",
     "electronConfiguration": "[He]2s2 2p5",
     "radiusScale": 39,
-    "discoveryYear": "1670",
-    "discoveredBy": "PubChem source record",
     "summary": "Fluorine (F) is a halogen element with atomic number 9. Its electron configuration is [He]2s2 2p5.",
     "uses": [
       "염 형성",
@@ -268,8 +253,6 @@ const rawElements = [
     "standardState": "Gas",
     "electronConfiguration": "[He]2s2 2p6",
     "radiusScale": 44,
-    "discoveryYear": "1898",
-    "discoveredBy": "PubChem source record",
     "summary": "Neon (Ne) is a noble gas element with atomic number 10. Its electron configuration is [He]2s2 2p6.",
     "uses": [
       "비활성 기체",
@@ -292,8 +275,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ne]3s1",
     "radiusScale": 65,
-    "discoveryYear": "1807",
-    "discoveredBy": "PubChem source record",
     "summary": "Sodium (Na) is a alkali metal element with atomic number 11. Its electron configuration is [Ne]3s1.",
     "uses": [
       "이온 결합",
@@ -316,8 +297,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ne]3s2",
     "radiusScale": 49,
-    "discoveryYear": "1808",
-    "discoveredBy": "PubChem source record",
     "summary": "Magnesium (Mg) is a alkaline earth metal element with atomic number 12. Its electron configuration is [Ne]3s2.",
     "uses": [
       "금속 반응성",
@@ -340,8 +319,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ne]3s2 3p1",
     "radiusScale": 53,
-    "discoveryYear": "Ancient",
-    "discoveredBy": "Known since antiquity",
     "summary": "Aluminum (Al) is a post-transition metal element with atomic number 13. Its electron configuration is [Ne]3s2 3p1.",
     "uses": [
       "금속 결합",
@@ -364,8 +341,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ne]3s2 3p2",
     "radiusScale": 60,
-    "discoveryYear": "1854",
-    "discoveredBy": "PubChem source record",
     "summary": "Silicon (Si) is a metalloid element with atomic number 14. Its electron configuration is [Ne]3s2 3p2.",
     "uses": [
       "반도체 경향",
@@ -388,8 +363,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ne]3s2 3p3",
     "radiusScale": 51,
-    "discoveryYear": "1669",
-    "discoveredBy": "PubChem source record",
     "summary": "Phosphorus (P) is a nonmetal element with atomic number 15. Its electron configuration is [Ne]3s2 3p3.",
     "uses": [
       "생명 화학",
@@ -412,8 +385,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ne]3s2 3p4",
     "radiusScale": 51,
-    "discoveryYear": "Ancient",
-    "discoveredBy": "Known since antiquity",
     "summary": "Sulfur (S) is a nonmetal element with atomic number 16. Its electron configuration is [Ne]3s2 3p4.",
     "uses": [
       "생명 화학",
@@ -436,8 +407,6 @@ const rawElements = [
     "standardState": "Gas",
     "electronConfiguration": "[Ne]3s2 3p5",
     "radiusScale": 50,
-    "discoveryYear": "1774",
-    "discoveredBy": "PubChem source record",
     "summary": "Chlorine (Cl) is a halogen element with atomic number 17. Its electron configuration is [Ne]3s2 3p5.",
     "uses": [
       "염 형성",
@@ -460,8 +429,6 @@ const rawElements = [
     "standardState": "Gas",
     "electronConfiguration": "[Ne]3s2 3p6",
     "radiusScale": 54,
-    "discoveryYear": "1894",
-    "discoveredBy": "PubChem source record",
     "summary": "Argon (Ar) is a noble gas element with atomic number 18. Its electron configuration is [Ne]3s2 3p6.",
     "uses": [
       "비활성 기체",
@@ -484,8 +451,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ar]4s1",
     "radiusScale": 79,
-    "discoveryYear": "1807",
-    "discoveredBy": "PubChem source record",
     "summary": "Potassium (K) is a alkali metal element with atomic number 19. Its electron configuration is [Ar]4s1.",
     "uses": [
       "이온 결합",
@@ -508,8 +473,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ar]4s2",
     "radiusScale": 66,
-    "discoveryYear": "Ancient",
-    "discoveredBy": "Known since antiquity",
     "summary": "Calcium (Ca) is a alkaline earth metal element with atomic number 20. Its electron configuration is [Ar]4s2.",
     "uses": [
       "금속 반응성",
@@ -532,8 +495,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ar]4s2 3d1",
     "radiusScale": 60,
-    "discoveryYear": "1879",
-    "discoveredBy": "PubChem source record",
     "summary": "Scandium (Sc) is a transition metal element with atomic number 21. Its electron configuration is [Ar]4s2 3d1.",
     "uses": [
       "착물/촉매",
@@ -556,8 +517,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ar]4s2 3d2",
     "radiusScale": 53,
-    "discoveryYear": "1791",
-    "discoveredBy": "PubChem source record",
     "summary": "Titanium (Ti) is a transition metal element with atomic number 22. Its electron configuration is [Ar]4s2 3d2.",
     "uses": [
       "착물/촉매",
@@ -580,8 +539,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ar]4s2 3d3",
     "radiusScale": 51,
-    "discoveryYear": "1801",
-    "discoveredBy": "PubChem source record",
     "summary": "Vanadium (V) is a transition metal element with atomic number 23. Its electron configuration is [Ar]4s2 3d3.",
     "uses": [
       "착물/촉매",
@@ -604,8 +561,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ar]3d5 4s1",
     "radiusScale": 54,
-    "discoveryYear": "1797",
-    "discoveredBy": "PubChem source record",
     "summary": "Chromium (Cr) is a transition metal element with atomic number 24. Its electron configuration is [Ar]3d5 4s1.",
     "uses": [
       "착물/촉매",
@@ -628,8 +583,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ar]4s2 3d5",
     "radiusScale": 56,
-    "discoveryYear": "1774",
-    "discoveredBy": "PubChem source record",
     "summary": "Manganese (Mn) is a transition metal element with atomic number 25. Its electron configuration is [Ar]4s2 3d5.",
     "uses": [
       "착물/촉매",
@@ -652,8 +605,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ar]4s2 3d6",
     "radiusScale": 55,
-    "discoveryYear": "Ancient",
-    "discoveredBy": "Known since antiquity",
     "summary": "Iron (Fe) is a transition metal element with atomic number 26. Its electron configuration is [Ar]4s2 3d6.",
     "uses": [
       "착물/촉매",
@@ -676,8 +627,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ar]4s2 3d7",
     "radiusScale": 55,
-    "discoveryYear": "1735",
-    "discoveredBy": "PubChem source record",
     "summary": "Cobalt (Co) is a transition metal element with atomic number 27. Its electron configuration is [Ar]4s2 3d7.",
     "uses": [
       "착물/촉매",
@@ -700,8 +649,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ar]4s2 3d8",
     "radiusScale": 47,
-    "discoveryYear": "1751",
-    "discoveredBy": "PubChem source record",
     "summary": "Nickel (Ni) is a transition metal element with atomic number 28. Its electron configuration is [Ar]4s2 3d8.",
     "uses": [
       "착물/촉매",
@@ -724,8 +671,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ar]4s1 3d10",
     "radiusScale": 40,
-    "discoveryYear": "Ancient",
-    "discoveredBy": "Known since antiquity",
     "summary": "Copper (Cu) is a transition metal element with atomic number 29. Its electron configuration is [Ar]4s1 3d10.",
     "uses": [
       "착물/촉매",
@@ -748,8 +693,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ar]4s2 3d10",
     "radiusScale": 40,
-    "discoveryYear": "1746",
-    "discoveredBy": "PubChem source record",
     "summary": "Zinc (Zn) is a transition metal element with atomic number 30. Its electron configuration is [Ar]4s2 3d10.",
     "uses": [
       "착물/촉매",
@@ -772,8 +715,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ar]4s2 3d10 4p1",
     "radiusScale": 53,
-    "discoveryYear": "1875",
-    "discoveredBy": "PubChem source record",
     "summary": "Gallium (Ga) is a post-transition metal element with atomic number 31. Its electron configuration is [Ar]4s2 3d10 4p1.",
     "uses": [
       "금속 결합",
@@ -796,8 +737,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ar]4s2 3d10 4p2",
     "radiusScale": 60,
-    "discoveryYear": "1886",
-    "discoveredBy": "PubChem source record",
     "summary": "Germanium (Ge) is a metalloid element with atomic number 32. Its electron configuration is [Ar]4s2 3d10 4p2.",
     "uses": [
       "반도체 경향",
@@ -820,8 +759,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ar]4s2 3d10 4p3",
     "radiusScale": 53,
-    "discoveryYear": "Ancient",
-    "discoveredBy": "Known since antiquity",
     "summary": "Arsenic (As) is a metalloid element with atomic number 33. Its electron configuration is [Ar]4s2 3d10 4p3.",
     "uses": [
       "반도체 경향",
@@ -844,8 +781,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Ar]4s2 3d10 4p4",
     "radiusScale": 54,
-    "discoveryYear": "1817",
-    "discoveredBy": "PubChem source record",
     "summary": "Selenium (Se) is a nonmetal element with atomic number 34. Its electron configuration is [Ar]4s2 3d10 4p4.",
     "uses": [
       "생명 화학",
@@ -868,8 +803,6 @@ const rawElements = [
     "standardState": "Liquid",
     "electronConfiguration": "[Ar]4s2 3d10 4p5",
     "radiusScale": 52,
-    "discoveryYear": "1826",
-    "discoveredBy": "PubChem source record",
     "summary": "Bromine (Br) is a halogen element with atomic number 35. Its electron configuration is [Ar]4s2 3d10 4p5.",
     "uses": [
       "염 형성",
@@ -892,8 +825,6 @@ const rawElements = [
     "standardState": "Gas",
     "electronConfiguration": "[Ar]4s2 3d10 4p6",
     "radiusScale": 58,
-    "discoveryYear": "1898",
-    "discoveredBy": "PubChem source record",
     "summary": "Krypton (Kr) is a noble gas element with atomic number 36. Its electron configuration is [Ar]4s2 3d10 4p6.",
     "uses": [
       "비활성 기체",
@@ -916,8 +847,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Kr]5s1",
     "radiusScale": 87,
-    "discoveryYear": "1861",
-    "discoveredBy": "PubChem source record",
     "summary": "Rubidium (Rb) is a alkali metal element with atomic number 37. Its electron configuration is [Kr]5s1.",
     "uses": [
       "이온 결합",
@@ -940,8 +869,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Kr]5s2",
     "radiusScale": 71,
-    "discoveryYear": "1790",
-    "discoveredBy": "PubChem source record",
     "summary": "Strontium (Sr) is a alkaline earth metal element with atomic number 38. Its electron configuration is [Kr]5s2.",
     "uses": [
       "금속 반응성",
@@ -964,8 +891,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Kr]5s2 4d1",
     "radiusScale": 63,
-    "discoveryYear": "1794",
-    "discoveredBy": "PubChem source record",
     "summary": "Yttrium (Y) is a transition metal element with atomic number 39. Its electron configuration is [Kr]5s2 4d1.",
     "uses": [
       "착물/촉매",
@@ -988,8 +913,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Kr]5s2 4d2",
     "radiusScale": 53,
-    "discoveryYear": "1789",
-    "discoveredBy": "PubChem source record",
     "summary": "Zirconium (Zr) is a transition metal element with atomic number 40. Its electron configuration is [Kr]5s2 4d2.",
     "uses": [
       "착물/촉매",
@@ -1012,8 +935,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Kr]5s1 4d4",
     "radiusScale": 59,
-    "discoveryYear": "1801",
-    "discoveredBy": "PubChem source record",
     "summary": "Niobium (Nb) is a transition metal element with atomic number 41. Its electron configuration is [Kr]5s1 4d4.",
     "uses": [
       "착물/촉매",
@@ -1036,8 +957,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Kr]5s1 4d5",
     "radiusScale": 60,
-    "discoveryYear": "1778",
-    "discoveredBy": "PubChem source record",
     "summary": "Molybdenum (Mo) is a transition metal element with atomic number 42. Its electron configuration is [Kr]5s1 4d5.",
     "uses": [
       "착물/촉매",
@@ -1060,8 +979,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Kr]5s2 4d5",
     "radiusScale": 60,
-    "discoveryYear": "1937",
-    "discoveredBy": "PubChem source record",
     "summary": "Technetium (Tc) is a transition metal element with atomic number 43. Its electron configuration is [Kr]5s2 4d5.",
     "uses": [
       "착물/촉매",
@@ -1084,8 +1001,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Kr]5s1 4d7",
     "radiusScale": 59,
-    "discoveryYear": "1827",
-    "discoveredBy": "PubChem source record",
     "summary": "Ruthenium (Ru) is a transition metal element with atomic number 44. Its electron configuration is [Kr]5s1 4d7.",
     "uses": [
       "착물/촉매",
@@ -1108,8 +1023,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Kr]5s1 4d8",
     "radiusScale": 56,
-    "discoveryYear": "1803",
-    "discoveredBy": "PubChem source record",
     "summary": "Rhodium (Rh) is a transition metal element with atomic number 45. Its electron configuration is [Kr]5s1 4d8.",
     "uses": [
       "착물/촉매",
@@ -1132,8 +1045,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Kr]4d10",
     "radiusScale": 58,
-    "discoveryYear": "1803",
-    "discoveredBy": "PubChem source record",
     "summary": "Palladium (Pd) is a transition metal element with atomic number 46. Its electron configuration is [Kr]4d10.",
     "uses": [
       "착물/촉매",
@@ -1156,8 +1067,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Kr]5s1 4d10",
     "radiusScale": 49,
-    "discoveryYear": "Ancient",
-    "discoveredBy": "Known since antiquity",
     "summary": "Silver (Ag) is a transition metal element with atomic number 47. Its electron configuration is [Kr]5s1 4d10.",
     "uses": [
       "착물/촉매",
@@ -1180,8 +1089,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Kr]5s2 4d10",
     "radiusScale": 45,
-    "discoveryYear": "1817",
-    "discoveredBy": "PubChem source record",
     "summary": "Cadmium (Cd) is a transition metal element with atomic number 48. Its electron configuration is [Kr]5s2 4d10.",
     "uses": [
       "착물/촉매",
@@ -1204,8 +1111,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Kr]5s2 4d10 5p1",
     "radiusScale": 55,
-    "discoveryYear": "1863",
-    "discoveredBy": "PubChem source record",
     "summary": "Indium (In) is a post-transition metal element with atomic number 49. Its electron configuration is [Kr]5s2 4d10 5p1.",
     "uses": [
       "금속 결합",
@@ -1228,8 +1133,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Kr]5s2 4d10 5p2",
     "radiusScale": 62,
-    "discoveryYear": "Ancient",
-    "discoveredBy": "Known since antiquity",
     "summary": "Tin (Sn) is a post-transition metal element with atomic number 50. Its electron configuration is [Kr]5s2 4d10 5p2.",
     "uses": [
       "금속 결합",
@@ -1252,8 +1155,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Kr]5s2 4d10 5p3",
     "radiusScale": 59,
-    "discoveryYear": "Ancient",
-    "discoveredBy": "Known since antiquity",
     "summary": "Antimony (Sb) is a metalloid element with atomic number 51. Its electron configuration is [Kr]5s2 4d10 5p3.",
     "uses": [
       "반도체 경향",
@@ -1276,8 +1177,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Kr]5s2 4d10 5p4",
     "radiusScale": 59,
-    "discoveryYear": "1782",
-    "discoveredBy": "PubChem source record",
     "summary": "Tellurium (Te) is a metalloid element with atomic number 52. Its electron configuration is [Kr]5s2 4d10 5p4.",
     "uses": [
       "반도체 경향",
@@ -1300,8 +1199,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Kr]5s2 4d10 5p5",
     "radiusScale": 57,
-    "discoveryYear": "1811",
-    "discoveredBy": "PubChem source record",
     "summary": "Iodine (I) is a halogen element with atomic number 53. Its electron configuration is [Kr]5s2 4d10 5p5.",
     "uses": [
       "염 형성",
@@ -1324,8 +1221,6 @@ const rawElements = [
     "standardState": "Gas",
     "electronConfiguration": "[Kr]5s2 4d10 5p6",
     "radiusScale": 62,
-    "discoveryYear": "1898",
-    "discoveredBy": "PubChem source record",
     "summary": "Xenon (Xe) is a noble gas element with atomic number 54. Its electron configuration is [Kr]5s2 4d10 5p6.",
     "uses": [
       "비활성 기체",
@@ -1348,8 +1243,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s1",
     "radiusScale": 98,
-    "discoveryYear": "1860",
-    "discoveredBy": "PubChem source record",
     "summary": "Cesium (Cs) is a alkali metal element with atomic number 55. Its electron configuration is [Xe]6s1.",
     "uses": [
       "이온 결합",
@@ -1372,8 +1265,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2",
     "radiusScale": 77,
-    "discoveryYear": "1808",
-    "discoveredBy": "PubChem source record",
     "summary": "Barium (Ba) is a alkaline earth metal element with atomic number 56. Its electron configuration is [Xe]6s2.",
     "uses": [
       "금속 반응성",
@@ -1396,8 +1287,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 5d1",
     "radiusScale": 69,
-    "discoveryYear": "1839",
-    "discoveredBy": "PubChem source record",
     "summary": "Lanthanum (La) is a lanthanide element with atomic number 57. Its electron configuration is [Xe]6s2 5d1.",
     "uses": [
       "f-오비탈",
@@ -1420,8 +1309,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f1 5d1",
     "radiusScale": 67,
-    "discoveryYear": "1803",
-    "discoveredBy": "PubChem source record",
     "summary": "Cerium (Ce) is a lanthanide element with atomic number 58. Its electron configuration is [Xe]6s2 4f1 5d1.",
     "uses": [
       "f-오비탈",
@@ -1444,8 +1331,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f3",
     "radiusScale": 68,
-    "discoveryYear": "1885",
-    "discoveredBy": "PubChem source record",
     "summary": "Praseodymium (Pr) is a lanthanide element with atomic number 59. Its electron configuration is [Xe]6s2 4f3.",
     "uses": [
       "f-오비탈",
@@ -1468,8 +1353,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f4",
     "radiusScale": 65,
-    "discoveryYear": "1885",
-    "discoveredBy": "PubChem source record",
     "summary": "Neodymium (Nd) is a lanthanide element with atomic number 60. Its electron configuration is [Xe]6s2 4f4.",
     "uses": [
       "f-오비탈",
@@ -1492,8 +1375,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f5",
     "radiusScale": 67,
-    "discoveryYear": "1945",
-    "discoveredBy": "PubChem source record",
     "summary": "Promethium (Pm) is a lanthanide element with atomic number 61. Its electron configuration is [Xe]6s2 4f5.",
     "uses": [
       "f-오비탈",
@@ -1516,8 +1397,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f6",
     "radiusScale": 65,
-    "discoveryYear": "1879",
-    "discoveredBy": "PubChem source record",
     "summary": "Samarium (Sm) is a lanthanide element with atomic number 62. Its electron configuration is [Xe]6s2 4f6.",
     "uses": [
       "f-오비탈",
@@ -1540,8 +1419,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f7",
     "radiusScale": 67,
-    "discoveryYear": "1901",
-    "discoveredBy": "PubChem source record",
     "summary": "Europium (Eu) is a lanthanide element with atomic number 63. Its electron configuration is [Xe]6s2 4f7.",
     "uses": [
       "f-오비탈",
@@ -1564,8 +1441,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f7 5d1",
     "radiusScale": 68,
-    "discoveryYear": "1880",
-    "discoveredBy": "PubChem source record",
     "summary": "Gadolinium (Gd) is a lanthanide element with atomic number 64. Its electron configuration is [Xe]6s2 4f7 5d1.",
     "uses": [
       "f-오비탈",
@@ -1588,8 +1463,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f9",
     "radiusScale": 63,
-    "discoveryYear": "1843",
-    "discoveredBy": "PubChem source record",
     "summary": "Terbium (Tb) is a lanthanide element with atomic number 65. Its electron configuration is [Xe]6s2 4f9.",
     "uses": [
       "f-오비탈",
@@ -1612,8 +1485,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f10",
     "radiusScale": 65,
-    "discoveryYear": "1886",
-    "discoveredBy": "PubChem source record",
     "summary": "Dysprosium (Dy) is a lanthanide element with atomic number 66. Its electron configuration is [Xe]6s2 4f10.",
     "uses": [
       "f-오비탈",
@@ -1636,8 +1507,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f11",
     "radiusScale": 62,
-    "discoveryYear": "1878",
-    "discoveredBy": "PubChem source record",
     "summary": "Holmium (Ho) is a lanthanide element with atomic number 67. Its electron configuration is [Xe]6s2 4f11.",
     "uses": [
       "f-오비탈",
@@ -1660,8 +1529,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f12",
     "radiusScale": 67,
-    "discoveryYear": "1843",
-    "discoveredBy": "PubChem source record",
     "summary": "Erbium (Er) is a lanthanide element with atomic number 68. Its electron configuration is [Xe]6s2 4f12.",
     "uses": [
       "f-오비탈",
@@ -1684,8 +1551,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f13",
     "radiusScale": 65,
-    "discoveryYear": "1879",
-    "discoveredBy": "PubChem source record",
     "summary": "Thulium (Tm) is a lanthanide element with atomic number 69. Its electron configuration is [Xe]6s2 4f13.",
     "uses": [
       "f-오비탈",
@@ -1708,8 +1573,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f14",
     "radiusScale": 69,
-    "discoveryYear": "1878",
-    "discoveredBy": "PubChem source record",
     "summary": "Ytterbium (Yb) is a lanthanide element with atomic number 70. Its electron configuration is [Xe]6s2 4f14.",
     "uses": [
       "f-오비탈",
@@ -1732,8 +1595,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f14 5d1",
     "radiusScale": 63,
-    "discoveryYear": "1907",
-    "discoveredBy": "PubChem source record",
     "summary": "Lutetium (Lu) is a lanthanide element with atomic number 71. Its electron configuration is [Xe]6s2 4f14 5d1.",
     "uses": [
       "f-오비탈",
@@ -1756,8 +1617,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f14 5d2",
     "radiusScale": 61,
-    "discoveryYear": "1923",
-    "discoveredBy": "PubChem source record",
     "summary": "Hafnium (Hf) is a transition metal element with atomic number 72. Its electron configuration is [Xe]6s2 4f14 5d2.",
     "uses": [
       "착물/촉매",
@@ -1780,8 +1639,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f14 5d3",
     "radiusScale": 62,
-    "discoveryYear": "1802",
-    "discoveredBy": "PubChem source record",
     "summary": "Tantalum (Ta) is a transition metal element with atomic number 73. Its electron configuration is [Xe]6s2 4f14 5d3.",
     "uses": [
       "착물/촉매",
@@ -1804,8 +1661,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f14 5d4",
     "radiusScale": 60,
-    "discoveryYear": "1783",
-    "discoveredBy": "PubChem source record",
     "summary": "Tungsten (W) is a transition metal element with atomic number 74. Its electron configuration is [Xe]6s2 4f14 5d4.",
     "uses": [
       "착물/촉매",
@@ -1828,8 +1683,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f14 5d5",
     "radiusScale": 62,
-    "discoveryYear": "1925",
-    "discoveredBy": "PubChem source record",
     "summary": "Rhenium (Re) is a transition metal element with atomic number 75. Its electron configuration is [Xe]6s2 4f14 5d5.",
     "uses": [
       "착물/촉매",
@@ -1852,8 +1705,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f14 5d6",
     "radiusScale": 62,
-    "discoveryYear": "1803",
-    "discoveredBy": "PubChem source record",
     "summary": "Osmium (Os) is a transition metal element with atomic number 76. Its electron configuration is [Xe]6s2 4f14 5d6.",
     "uses": [
       "착물/촉매",
@@ -1876,8 +1727,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f14 5d7",
     "radiusScale": 58,
-    "discoveryYear": "1803",
-    "discoveredBy": "PubChem source record",
     "summary": "Iridium (Ir) is a transition metal element with atomic number 77. Its electron configuration is [Xe]6s2 4f14 5d7.",
     "uses": [
       "착물/촉매",
@@ -1900,8 +1749,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s1 4f14 5d9",
     "radiusScale": 60,
-    "discoveryYear": "1735",
-    "discoveredBy": "PubChem source record",
     "summary": "Platinum (Pt) is a transition metal element with atomic number 78. Its electron configuration is [Xe]6s1 4f14 5d9.",
     "uses": [
       "착물/촉매",
@@ -1924,8 +1771,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s1 4f14 5d10",
     "radiusScale": 47,
-    "discoveryYear": "Ancient",
-    "discoveredBy": "Known since antiquity",
     "summary": "Gold (Au) is a transition metal element with atomic number 79. Its electron configuration is [Xe]6s1 4f14 5d10.",
     "uses": [
       "착물/촉매",
@@ -1948,8 +1793,6 @@ const rawElements = [
     "standardState": "Liquid",
     "electronConfiguration": "[Xe]6s2 4f14 5d10",
     "radiusScale": 60,
-    "discoveryYear": "Ancient",
-    "discoveredBy": "Known since antiquity",
     "summary": "Mercury (Hg) is a transition metal element with atomic number 80. Its electron configuration is [Xe]6s2 4f14 5d10.",
     "uses": [
       "착물/촉매",
@@ -1972,8 +1815,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f14 5d10 6p1",
     "radiusScale": 56,
-    "discoveryYear": "1861",
-    "discoveredBy": "PubChem source record",
     "summary": "Thallium (Tl) is a post-transition metal element with atomic number 81. Its electron configuration is [Xe]6s2 4f14 5d10 6p1.",
     "uses": [
       "금속 결합",
@@ -1996,8 +1837,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f14 5d10 6p2",
     "radiusScale": 58,
-    "discoveryYear": "Ancient",
-    "discoveredBy": "Known since antiquity",
     "summary": "Lead (Pb) is a post-transition metal element with atomic number 82. Its electron configuration is [Xe]6s2 4f14 5d10 6p2.",
     "uses": [
       "금속 결합",
@@ -2020,8 +1859,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f14 5d10 6p3",
     "radiusScale": 59,
-    "discoveryYear": "1753",
-    "discoveredBy": "PubChem source record",
     "summary": "Bismuth (Bi) is a post-transition metal element with atomic number 83. Its electron configuration is [Xe]6s2 4f14 5d10 6p3.",
     "uses": [
       "금속 결합",
@@ -2044,8 +1881,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f14 5d10 6p4",
     "radiusScale": 56,
-    "discoveryYear": "1898",
-    "discoveredBy": "PubChem source record",
     "summary": "Polonium (Po) is a metalloid element with atomic number 84. Its electron configuration is [Xe]6s2 4f14 5d10 6p4.",
     "uses": [
       "반도체 경향",
@@ -2068,8 +1903,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Xe]6s2 4f14 5d10 6p5",
     "radiusScale": 58,
-    "discoveryYear": "1940",
-    "discoveredBy": "PubChem source record",
     "summary": "Astatine (At) is a halogen element with atomic number 85. Its electron configuration is [Xe]6s2 4f14 5d10 6p5.",
     "uses": [
       "염 형성",
@@ -2092,8 +1925,6 @@ const rawElements = [
     "standardState": "Gas",
     "electronConfiguration": "[Xe]6s2 4f14 5d10 6p6",
     "radiusScale": 63,
-    "discoveryYear": "1900",
-    "discoveredBy": "PubChem source record",
     "summary": "Radon (Rn) is a noble gas element with atomic number 86. Its electron configuration is [Xe]6s2 4f14 5d10 6p6.",
     "uses": [
       "비활성 기체",
@@ -2116,8 +1947,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s1",
     "radiusScale": 99,
-    "discoveryYear": "1939",
-    "discoveredBy": "PubChem source record",
     "summary": "Francium (Fr) is a alkali metal element with atomic number 87. Its electron configuration is [Rn]7s1.",
     "uses": [
       "이온 결합",
@@ -2140,8 +1969,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2",
     "radiusScale": 81,
-    "discoveryYear": "1898",
-    "discoveredBy": "PubChem source record",
     "summary": "Radium (Ra) is a alkaline earth metal element with atomic number 88. Its electron configuration is [Rn]7s2.",
     "uses": [
       "금속 반응성",
@@ -2164,8 +1991,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2 6d1",
     "radiusScale": 74,
-    "discoveryYear": "1899",
-    "discoveredBy": "PubChem source record",
     "summary": "Actinium (Ac) is a actinide element with atomic number 89. Its electron configuration is [Rn]7s2 6d1.",
     "uses": [
       "방사성 계열",
@@ -2188,8 +2013,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2 6d2",
     "radiusScale": 68,
-    "discoveryYear": "1828",
-    "discoveredBy": "PubChem source record",
     "summary": "Thorium (Th) is a actinide element with atomic number 90. Its electron configuration is [Rn]7s2 6d2.",
     "uses": [
       "방사성 계열",
@@ -2212,8 +2035,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2 5f2 6d1",
     "radiusScale": 69,
-    "discoveryYear": "1913",
-    "discoveredBy": "PubChem source record",
     "summary": "Protactinium (Pa) is a actinide element with atomic number 91. Its electron configuration is [Rn]7s2 5f2 6d1.",
     "uses": [
       "방사성 계열",
@@ -2236,8 +2057,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2 5f3 6d1",
     "radiusScale": 69,
-    "discoveryYear": "1789",
-    "discoveredBy": "PubChem source record",
     "summary": "Uranium (U) is a actinide element with atomic number 92. Its electron configuration is [Rn]7s2 5f3 6d1.",
     "uses": [
       "방사성 계열",
@@ -2260,8 +2079,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2 5f4 6d1",
     "radiusScale": 63,
-    "discoveryYear": "1940",
-    "discoveredBy": "PubChem source record",
     "summary": "Neptunium (Np) is a actinide element with atomic number 93. Its electron configuration is [Rn]7s2 5f4 6d1.",
     "uses": [
       "방사성 계열",
@@ -2284,8 +2101,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2 5f6",
     "radiusScale": 69,
-    "discoveryYear": "1940",
-    "discoveredBy": "PubChem source record",
     "summary": "Plutonium (Pu) is a actinide element with atomic number 94. Its electron configuration is [Rn]7s2 5f6.",
     "uses": [
       "방사성 계열",
@@ -2308,8 +2123,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2 5f7",
     "radiusScale": 70,
-    "discoveryYear": "1944",
-    "discoveredBy": "PubChem source record",
     "summary": "Americium (Am) is a actinide element with atomic number 95. Its electron configuration is [Rn]7s2 5f7.",
     "uses": [
       "방사성 계열",
@@ -2332,8 +2145,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2 5f7 6d1",
     "radiusScale": 70,
-    "discoveryYear": "1944",
-    "discoveredBy": "PubChem source record",
     "summary": "Curium (Cm) is a actinide element with atomic number 96. Its electron configuration is [Rn]7s2 5f7 6d1.",
     "uses": [
       "방사성 계열",
@@ -2356,8 +2167,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2 5f9",
     "radiusScale": 70,
-    "discoveryYear": "1949",
-    "discoveredBy": "PubChem source record",
     "summary": "Berkelium (Bk) is a actinide element with atomic number 97. Its electron configuration is [Rn]7s2 5f9.",
     "uses": [
       "방사성 계열",
@@ -2380,8 +2189,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2 5f10",
     "radiusScale": 70,
-    "discoveryYear": "1950",
-    "discoveredBy": "PubChem source record",
     "summary": "Californium (Cf) is a actinide element with atomic number 98. Its electron configuration is [Rn]7s2 5f10.",
     "uses": [
       "방사성 계열",
@@ -2404,8 +2211,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2 5f11",
     "radiusScale": 70,
-    "discoveryYear": "1952",
-    "discoveredBy": "PubChem source record",
     "summary": "Einsteinium (Es) is a actinide element with atomic number 99. Its electron configuration is [Rn]7s2 5f11.",
     "uses": [
       "방사성 계열",
@@ -2428,8 +2233,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn] 5f12 7s2",
     "radiusScale": 6,
-    "discoveryYear": "1952",
-    "discoveredBy": "PubChem source record",
     "summary": "Fermium (Fm) is a actinide element with atomic number 100. Its electron configuration is [Rn] 5f12 7s2.",
     "uses": [
       "방사성 계열",
@@ -2452,8 +2255,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2 5f13",
     "radiusScale": 6,
-    "discoveryYear": "1955",
-    "discoveredBy": "PubChem source record",
     "summary": "Mendelevium (Md) is a actinide element with atomic number 101. Its electron configuration is [Rn]7s2 5f13.",
     "uses": [
       "방사성 계열",
@@ -2476,8 +2277,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2 5f14",
     "radiusScale": 6,
-    "discoveryYear": "1957",
-    "discoveredBy": "PubChem source record",
     "summary": "Nobelium (No) is a actinide element with atomic number 102. Its electron configuration is [Rn]7s2 5f14.",
     "uses": [
       "방사성 계열",
@@ -2500,8 +2299,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2 5f14 6d1",
     "radiusScale": 6,
-    "discoveryYear": "1961",
-    "discoveredBy": "PubChem source record",
     "summary": "Lawrencium (Lr) is a actinide element with atomic number 103. Its electron configuration is [Rn]7s2 5f14 6d1.",
     "uses": [
       "방사성 계열",
@@ -2524,8 +2321,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2 5f14 6d2",
     "radiusScale": 6,
-    "discoveryYear": "1964",
-    "discoveredBy": "PubChem source record",
     "summary": "Rutherfordium (Rf) is a transition metal element with atomic number 104. Its electron configuration is [Rn]7s2 5f14 6d2.",
     "uses": [
       "착물/촉매",
@@ -2548,8 +2343,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2 5f14 6d3",
     "radiusScale": 6,
-    "discoveryYear": "1967",
-    "discoveredBy": "PubChem source record",
     "summary": "Dubnium (Db) is a transition metal element with atomic number 105. Its electron configuration is [Rn]7s2 5f14 6d3.",
     "uses": [
       "착물/촉매",
@@ -2572,8 +2365,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2 5f14 6d4",
     "radiusScale": 6,
-    "discoveryYear": "1974",
-    "discoveredBy": "PubChem source record",
     "summary": "Seaborgium (Sg) is a transition metal element with atomic number 106. Its electron configuration is [Rn]7s2 5f14 6d4.",
     "uses": [
       "착물/촉매",
@@ -2596,8 +2387,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2 5f14 6d5",
     "radiusScale": 6,
-    "discoveryYear": "1976",
-    "discoveredBy": "PubChem source record",
     "summary": "Bohrium (Bh) is a transition metal element with atomic number 107. Its electron configuration is [Rn]7s2 5f14 6d5.",
     "uses": [
       "착물/촉매",
@@ -2620,8 +2409,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2 5f14 6d6",
     "radiusScale": 6,
-    "discoveryYear": "1984",
-    "discoveredBy": "PubChem source record",
     "summary": "Hassium (Hs) is a transition metal element with atomic number 108. Its electron configuration is [Rn]7s2 5f14 6d6.",
     "uses": [
       "착물/촉매",
@@ -2644,8 +2431,6 @@ const rawElements = [
     "standardState": "Solid",
     "electronConfiguration": "[Rn]7s2 5f14 6d7 (calculated)",
     "radiusScale": 6,
-    "discoveryYear": "1982",
-    "discoveredBy": "PubChem source record",
     "summary": "Meitnerium (Mt) is a transition metal element with atomic number 109. Its electron configuration is [Rn]7s2 5f14 6d7 (calculated).",
     "uses": [
       "착물/촉매",
@@ -2668,8 +2453,6 @@ const rawElements = [
     "standardState": "Expected to be a Solid",
     "electronConfiguration": "[Rn]7s2 5f14 6d8 (predicted)",
     "radiusScale": 6,
-    "discoveryYear": "1994",
-    "discoveredBy": "PubChem source record",
     "summary": "Darmstadtium (Ds) is a transition metal element with atomic number 110. Its electron configuration is [Rn]7s2 5f14 6d8 (predicted).",
     "uses": [
       "착물/촉매",
@@ -2692,8 +2475,6 @@ const rawElements = [
     "standardState": "Expected to be a Solid",
     "electronConfiguration": "[Rn]7s2 5f14 6d9 (predicted)",
     "radiusScale": 6,
-    "discoveryYear": "1994",
-    "discoveredBy": "PubChem source record",
     "summary": "Roentgenium (Rg) is a transition metal element with atomic number 111. Its electron configuration is [Rn]7s2 5f14 6d9 (predicted).",
     "uses": [
       "착물/촉매",
@@ -2716,8 +2497,6 @@ const rawElements = [
     "standardState": "Expected to be a Solid",
     "electronConfiguration": "[Rn]7s2 5f14 6d10 (predicted)",
     "radiusScale": 6,
-    "discoveryYear": "1996",
-    "discoveredBy": "PubChem source record",
     "summary": "Copernicium (Cn) is a transition metal element with atomic number 112. Its electron configuration is [Rn]7s2 5f14 6d10 (predicted).",
     "uses": [
       "착물/촉매",
@@ -2740,8 +2519,6 @@ const rawElements = [
     "standardState": "Expected to be a Solid",
     "electronConfiguration": "[Rn]5f14 6d10 7s2 7p1 (predicted)",
     "radiusScale": 6,
-    "discoveryYear": "2004",
-    "discoveredBy": "PubChem source record",
     "summary": "Nihonium (Nh) is a post-transition metal element with atomic number 113. Its electron configuration is [Rn]5f14 6d10 7s2 7p1 (predicted).",
     "uses": [
       "금속 결합",
@@ -2764,8 +2541,6 @@ const rawElements = [
     "standardState": "Expected to be a Solid",
     "electronConfiguration": "[Rn]7s2 7p2 5f14 6d10 (predicted)",
     "radiusScale": 6,
-    "discoveryYear": "1998",
-    "discoveredBy": "PubChem source record",
     "summary": "Flerovium (Fl) is a post-transition metal element with atomic number 114. Its electron configuration is [Rn]7s2 7p2 5f14 6d10 (predicted).",
     "uses": [
       "금속 결합",
@@ -2788,8 +2563,6 @@ const rawElements = [
     "standardState": "Expected to be a Solid",
     "electronConfiguration": "[Rn]7s2 7p3 5f14 6d10 (predicted)",
     "radiusScale": 6,
-    "discoveryYear": "2003",
-    "discoveredBy": "PubChem source record",
     "summary": "Moscovium (Mc) is a post-transition metal element with atomic number 115. Its electron configuration is [Rn]7s2 7p3 5f14 6d10 (predicted).",
     "uses": [
       "금속 결합",
@@ -2812,8 +2585,6 @@ const rawElements = [
     "standardState": "Expected to be a Solid",
     "electronConfiguration": "[Rn]7s2 7p4 5f14 6d10 (predicted)",
     "radiusScale": 6,
-    "discoveryYear": "2000",
-    "discoveredBy": "PubChem source record",
     "summary": "Livermorium (Lv) is a post-transition metal element with atomic number 116. Its electron configuration is [Rn]7s2 7p4 5f14 6d10 (predicted).",
     "uses": [
       "금속 결합",
@@ -2836,8 +2607,6 @@ const rawElements = [
     "standardState": "Expected to be a Solid",
     "electronConfiguration": "[Rn]7s2 7p5 5f14 6d10 (predicted)",
     "radiusScale": 6,
-    "discoveryYear": "2010",
-    "discoveredBy": "PubChem source record",
     "summary": "Tennessine (Ts) is a halogen element with atomic number 117. Its electron configuration is [Rn]7s2 7p5 5f14 6d10 (predicted).",
     "uses": [
       "염 형성",
@@ -2860,8 +2629,6 @@ const rawElements = [
     "standardState": "Expected to be a Gas",
     "electronConfiguration": "[Rn]7s2 7p6 5f14 6d10 (predicted)",
     "radiusScale": 6,
-    "discoveryYear": "2006",
-    "discoveredBy": "PubChem source record",
     "summary": "Oganesson (Og) is a noble gas element with atomic number 118. Its electron configuration is [Rn]7s2 7p6 5f14 6d10 (predicted).",
     "uses": [
       "비활성 기체",
@@ -2870,9 +2637,130 @@ const rawElements = [
     ],
     "color": "#c4b5fd"
   }
-] satisfies Array<Omit<ElementRecord, "shells" | "massNumber" | "neutrons" | "radiusEstimated">>;
+] satisfies Array<Omit<ElementRecord, "discoveryYear" | "discoveredBy" | "shells" | "massNumber" | "neutrons" | "radiusEstimated" | "discoveryNote" | "discoverySourceUrl" | "elementSourceUrl">>;
 
 type RawElementRecord = (typeof rawElements)[number];
+
+const discoveryRecords: Record<string, { year: string; by: string; note: string; sourceUrl: string; elementSourceUrl: string }> = {
+  H: {"year":"1671","by":"R. Boyle","note":"Robert Boyle produced it by reacting iron filings with dilute acid. Henry Cavendish in 1766 was the first to distinguish H2 from other gases.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Hydrogen"},
+  He: {"year":"1868","by":"N. Lockyer","note":"P. Janssen and Lockyer observed independently a yellow line in the solar spectrum that did not match any other element. Widely known isolation: 1895 by W. Ramsay, T. Cleve, and N. Langlet.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Helium"},
+  Li: {"year":"1817","by":"A. Arfwedson","note":"Arfwedson, a student of Berzelius, discovered the alkali in petalite. Brande isolated it electrolytically from lithium oxide. Widely known isolation: 1821 by W. T. Brande.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Lithium"},
+  Be: {"year":"1798","by":"N. Vauquelin","note":"Vauquelin discovered the oxide in beryl and emerald in 1798, and in 1808 Davy showed that this oxide has a metallic base although he could not isolate it. Vauquelin was uncertain about the name to give to the oxide: in 1798 he called it la terre du beril, but the journal editors named it glucine after the sweet taste of beryllium compounds (which are highly toxic). Widely known isolation: 1828 by F. Wöhler and A. Bussy.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Beryllium"},
+  B: {"year":"1787","by":"L. Guyton de Morveau, A. Lavoisier, C. L. Berthollet, and A. de Fourcroy","note":"Borax was known from ancient times. In 1787, radical boracique appeared in the Méthode de nomenclature chimique of Louis-Bernard Guyton de Morveau, Antoine Lavoisier, Claude Louis Berthollet, and Antoine François, comte de Fourcroy. Widely known isolation: 1809 by H. Davy.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Boron"},
+  C: {"year":"26000 BC","by":"Earliest humans","note":"Charcoal and soot were known to the earliest humans, with the oldest known charcoal paintings dating to about 28000 years ago, e.g. Gabarnmung in Australia.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Carbon"},
+  N: {"year":"1772","by":"D. Rutherford","note":"Rutherford discovered nitrogen while studying at the University of Edinburgh. He showed that the air in which animals had breathed, even after removal of the exhaled carbon dioxide, was no longer able to burn a candle.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Nitrogen"},
+  O: {"year":"1771","by":"W. Scheele","note":"Scheele obtained it by heating mercuric oxide and nitrates in 1771, but did not publish his findings until 1777. Joseph Priestley also prepared this new air by 1774, but only Lavoisier recognized it as a true element; he named it in 1777.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Oxygen"},
+  F: {"year":"1771","by":"W. Scheele","note":"Fluorspar was described by Georgius Agricola in 1529. Scheele studied fluorspar and correctly concluded it to be the lime (calcium) salt of an acid. Widely known isolation: 1886 by H. Moissan.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Fluorine"},
+  Ne: {"year":"1898","by":"W. Ramsay and W. Travers","note":"In June 1898 Ramsay separated a new noble gas from liquid argon by difference in boiling point.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Neon"},
+  Na: {"year":"1702","by":"G. E. Stahl","note":"Georg Ernst Stahl obtained experimental evidence that led him to suggest the fundamental difference of sodium and potassium salts in 1702, and Henri Louis Duhamel du Monceau was able to prove this difference in 1736. Andreas Sigismund Marggraf again recognised the difference between soda ash and potash in 1758, but not all chemists accepted his conclusion. Widely known isolation: 1807 by H. Davy.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Sodium"},
+  Mg: {"year":"1755","by":"J. Black","note":"Joseph Black observed that magnesia alba (MgO) was not quicklime (CaO) in 1755; until then, both substances had been confused. Davy isolated the metal electrochemically from magnesia. Widely known isolation: 1808 by H. Davy.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Magnesium"},
+  Al: {"year":"1746","by":"J. H. Pott","note":"Paracelsus recognised aluminis as separate from vitriol in 1570, and Andreas Libavius proposed in his 1597 treatise to name the unknown earth of alum alumina. In 1746, Johann Heinrich Pott published a treatise distinguishing alum from lime and chalk, and Marggraf precipitated the new earth in 1756. Widely known isolation: 1825 by H.C.Ørsted.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Aluminum"},
+  Si: {"year":"1739","by":"J. H. Pott","note":"Silicon compounds (rock crystals and glass) were known to the ancients, but its chemical investigation dates only to the 17th century. Johann Joachim Becher (of the phlogiston theory) identified silica as the terra vitrescibilis, and Johann Heinrich Pott recognised it as an individual \"earth\" in his treatise of 1739. Widely known isolation: 1823 by J. Berzelius.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Silicon"},
+  P: {"year":"1669","by":"H. Brand","note":"Prepared and isolated from urine, it was the first element whose discovery date and discoverer are recorded. Its name first appears in print in the work of in 1676.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Phosphorus"},
+  S: {"year":"Before 2000 BC","by":"Middle East","note":"First used at least 4,000 years ago. According to the Ebers Papyrus, a sulfur ointment was used in ancient Egypt to treat granular eyelids.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Sulfur"},
+  Cl: {"year":"1774","by":"W. Scheele","note":"Obtained it from hydrochloric acid, but thought it was an oxide. Only in 1810 did Humphry Davy recognize it as an element.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Chlorine"},
+  Ar: {"year":"1894","by":"Lord Rayleigh and W. Ramsay","note":"They discovered the gas by comparing the molecular weights of nitrogen prepared by liquefaction from air and nitrogen prepared by chemical means. It is the first noble gas to be isolated.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Argon"},
+  K: {"year":"1702","by":"G. E. Stahl","note":" Widely known isolation: 1807 by H. Davy.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Potassium"},
+  Ca: {"year":"1739","by":"J. H. Pott","note":"Lime was known as a substance for centuries, but only in the 18th century was its chemical nature recognised. Pott recognised terra calcarea (calcareous earth) as an individual \"earth\" in his treatise of 1739. Widely known isolation: 1808 by H. Davy.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Calcium"},
+  Sc: {"year":"1879","by":"F. Nilson","note":"Nilson split Marignac's ytterbia into pure ytterbia and a new element that matched Mendeleev's 1871 predicted eka-boron. Widely known isolation: 1937 by W. Fischer, K. Brünger, H. Grieneisen.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Scandium"},
+  Ti: {"year":"1791","by":"W. Gregor","note":"Gregor found an oxide of a new metal in ilmenite; Klaproth independently discovered the element in rutile in 1795 and named it. In 1825, Jöns Jacob Berzelius claimed isolation of metallic titanium, but his substance did not react with hydrofluoric acid, whereas titanium does. Widely known isolation: 1875 by D. K. Kirillov.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Titanium"},
+  V: {"year":"1801","by":"A. M. del Río","note":"Andrés Manuel del Río found the metal (calling it erythronium) in vanadinite in 1801, but the claim was rejected after Hippolyte Victor Collet-Descotils dismissed it as chromium based on erroneous and superficial testing. Nils Gabriel Sefström rediscovered the element in 1830 and named it vanadium. Widely known isolation: 1867 by H. E. Roscoe.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Vanadium"},
+  Cr: {"year":"1797","by":"N. Vauquelin","note":"Vauquelin analysed the composition of crocoite ore in 1797, and later isolated the metal by heating the oxide in a charcoal oven.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Chromium"},
+  Mn: {"year":"1770","by":"T. O. Bergman","note":"Torbern Olof Bergman distinguished pyrolusite as the calx of a new metal, but failed to reduce it. Ignatius Gottfred Kaim might have isolated it in 1770, but there is uncertainty on that. Widely known isolation: 1774 by J. G. Gahn.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Manganese"},
+  Fe: {"year":"Before 5000 BC","by":"Middle East","note":"There is evidence that iron was known from before 5000 BC. The oldest known iron objects used by humans are some beads of meteoric iron, made in Egypt in about 4000 BC.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Iron"},
+  Co: {"year":"1735","by":"G. Brandt","note":"Proved that the blue color of glass is due to a new kind of metal and not bismuth as thought previously.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Cobalt"},
+  Ni: {"year":"1751","by":"F. Cronstedt","note":"Found by attempting to extract copper from the mineral known as fake copper (now known as niccolite).","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Nickel"},
+  Cu: {"year":"9000 BC","by":"Middle East","note":"It was originally obtained as a native metal and later from the smelting of ores. Earliest estimates of the discovery of copper suggest around 9000 BC in the Middle East.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Copper"},
+  Zn: {"year":"Before 1000 BC","by":"Indian metallurgists","note":"Used as a component of brass since antiquity (before 1000 BC) by Indian metallurgists, but its true nature was not generally understood in ancient times. A 4th century BC vase from Taxila is made of brass with a zinc content of 34%, too high to be produced by cementation, providing strong evidence that metallic zinc was known in India by the 4th century BC.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Zinc"},
+  Ga: {"year":"1875","by":"P. E. L. de Boisbaudran","note":"Boisbaudran observed on a pyrenea blende sample some emission lines corresponding to the eka-aluminium that was predicted by Mendeleev in 1871. He and Jungfleisch isolated the metal three years later by electrolysis. Widely known isolation: 1878 by P. E. L. de Boisbaudran and E. Jungfleisch.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Gallium"},
+  Ge: {"year":"1886","by":"C. A. Winkler","note":"In February 1886 Winkler found in argyrodite the eka-silicon that Mendeleev had predicted in 1871.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Germanium"},
+  As: {"year":"c. AD 300","by":"Egyptians","note":"The use of metallic arsenic was described by the Egyptian alchemist Zosimos. The purification of arsenic was later described in the works attributed to the Muslim alchemist Jabir ibn Hayyan (–950).","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Arsenic"},
+  Se: {"year":"1817","by":"J. Berzelius and G. Gahn","note":"While working with lead they discovered a substance that they thought was tellurium, but realized after more investigation that it was different.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Selenium"},
+  Br: {"year":"1825","by":"J. Balard and C. Löwig","note":"They both discovered the element in the autumn of 1825. Balard published his results the next year, but Löwig did not publish until 1827.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Bromine"},
+  Kr: {"year":"1898","by":"W. Ramsay and W. Travers","note":"On May 30, 1898, Ramsay separated a noble gas from liquid argon by difference in boiling point.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Krypton"},
+  Rb: {"year":"1861","by":"G. R. Kirchhoff and R. Bunsen","note":"Kirchhoff and Bunsen discovered it just a few months after caesium, by observing new spectral lines in the mineral lepidolite. The metal was isolated by Bunsen around 1863. Widely known isolation: 1863 by R. Bunsen.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Rubidium"},
+  Sr: {"year":"1790","by":"A. Crawford","note":"Adair Crawford in 1790 found that strontianite (strontium carbonate) and witherite (barium carbonate) have different chemical properties, and suspected strontianite contained a new earth. Before him, strontianite is seen as a type of witherite. Widely known isolation: 1808 by H. Davy.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Strontium"},
+  Y: {"year":"1794","by":"J. Gadolin","note":"Johan Gadolin discovered the earth in gadolinite in 1794. He did not name his discovery, but Anders Gustaf Ekeberg did so when he confirmed it in 1797. Widely known isolation: 1843 by H. Rose.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Yttrium"},
+  Zr: {"year":"1789","by":"H. Klaproth","note":"Martin Heinrich Klaproth identified a new oxide in zircon in 1789, and in 1808 Davy showed that this oxide has a metallic base although he could not isolate it. Widely known isolation: 1824 by J. Berzelius.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Zirconium"},
+  Nb: {"year":"1801","by":"C. Hatchett","note":"Hatchett found the element in columbite ore and named it columbium. In 1809, W. Widely known isolation: 1864 by W. Blomstrand.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Niobium"},
+  Mo: {"year":"1778","by":"W. Scheele","note":"Scheele recognised the metal as a constituent of molybdena. Before that, Axel Cronstedt had assumed that molybdena contained a new earth in 1758. Widely known isolation: 1788 by J. Hjelm.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Molybdenum"},
+  Tc: {"year":"1937","by":"C. Perrier and E. Segrè","note":"The two discovered a new element in a molybdenum sample that was used in a cyclotron, the first element to be discovered by synthesis. It had been predicted by Mendeleev in 1871 as eka-manganese. Widely known isolation: 1947 by S. Fried.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Technetium"},
+  Ru: {"year":"1844","by":"K. Claus","note":"Gottfried Wilhelm Osann thought that he found three new metals in Russian platinum samples in 1826, which he named polinium, pluranium, and ruthenium in 1828. But his results were questioned and he did not have enough quantities to isolate them, so he withdrew his claims in 1829.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Ruthenium"},
+  Rh: {"year":"1804","by":"H. Wollaston","note":"Wollaston discovered and isolated it from crude platinum samples from South America.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Rhodium"},
+  Pd: {"year":"1802","by":"W. H. Wollaston","note":"Wollaston discovered it in samples of platinum from South America, but did not publish his results immediately. He had intended to name it after the newly discovered asteroid, Ceres, but by the time he published his results in 1804, cerium had taken that name.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Palladium"},
+  Ag: {"year":"Before 5000 BC","by":"Asia Minor","note":"Estimated to have been discovered in Asia Minor shortly after copper and gold. Recognised as an element by Guyton de Morveau, Lavoisier, Berthollet, and Fourcroy in 1787.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Silver"},
+  Cd: {"year":"1817","by":"S. L Hermann, F. Stromeyer, and J.C.H. Roloff","note":"All three found an unknown metal in a sample of zinc oxide from Silesia, but the name that Stromeyer gave became the accepted one.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Cadmium"},
+  In: {"year":"1863","by":"F. Reich and T. Richter","note":"Reich and Richter first identified it in sphalerite by its bright indigo-blue spectroscopic emission line. Richter isolated the metal the next year. Widely known isolation: 1864 by T. Richter.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Indium"},
+  Sn: {"year":"3500 BC","by":"Asia Minor","note":"First smelted in combination with copper around 3500 BC to produce bronze (and thus giving place to the Bronze Age in those places where Iron Age did not intrude directly on Neolithic of the Stone Age). Kestel, in southern Turkey, is the site of an ancient Cassiterite mine that was used from 3250 to 1800 BC.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Tin"},
+  Sb: {"year":"3000 BC","by":"Sumerians","note":"An artifact, said to be part of a vase, made of very pure antimony dating to about 3000 BC was found at Telloh, Chaldea (part of present-day Iraq). Dioscorides and Pliny both describe the accidental production of metallic antimony from stibnite, but only seem to recognize the metal as lead.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Antimony"},
+  Te: {"year":"1782","by":"F.-J.M. von Reichenstein","note":"Muller observed it as an impurity in gold ores from Transylvania. Klaproth isolated it in 1798. Widely known isolation: 1798 by H. Klaproth.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Tellurium"},
+  I: {"year":"1811","by":"B. Courtois","note":"Courtois discovered it in the ashes of seaweed. The name iode was given in French by Gay-Lussac and published in 1813.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Iodine"},
+  Xe: {"year":"1898","by":"W. Ramsay and W. Travers","note":"After neon, Ramsay separated a third noble gas from liquid argon by difference in boiling point.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Xenon"},
+  Cs: {"year":"1860","by":"G. R. Kirchhoff and R. Bunsen","note":"Kirchhoff and Bunsen were the first to suggest finding new elements by spectrum analysis. They discovered caesium by its two blue emission lines in a sample of Dürkheim mineral water. Widely known isolation: 1882 by C. Setterberg.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Cesium"},
+  Ba: {"year":"1772","by":"W. Scheele","note":"Scheele distinguished a new earth (BaO) in baryte in 1772. He did not name his discovery; Guyton de Morveau suggested barote in 1782. Widely known isolation: 1808 by H. Davy.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Barium"},
+  La: {"year":"1838","by":"G. Mosander","note":"Mosander found a new earth in samples of ceria in 1838. Widely known isolation: 1904 by W. Muthmann, L. Weiss.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Lanthanum"},
+  Ce: {"year":"1803","by":"H. Klaproth, W. Hisinger, and J. Berzelius","note":"Hisinger and Berzelius discovered a new earth in cerite, considered it to be an oxide of a new element and named the element after the newly discovered asteroid (then considered a planet), Ceres. Klaproth discovered it simultaneously and independently in some tantalum samples. Widely known isolation: 1875 by W. F. Hillebrand and T. H. Norton.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Cerium"},
+  Pr: {"year":"1885","by":"C. A. von Welsbach","note":"Carl Auer von Welsbach discovered it in Mosander's didymia. Widely known isolation: 1904 by W. Muthmann, L. Weiss.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Praseodymium"},
+  Nd: {"year":"1841","by":"G. Mosander","note":"Discovered by Mosander and called didymium. Carl Auer von Welsbach later split it into two elements, praseodymium and neodymium. Widely known isolation: 1901 by W. Muthmann, H. Hofer, L. Weiss.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Neodymium"},
+  Pm: {"year":"1945","by":"Jacob A. Marinsky, Lawrence E. Glendenin, and Charles D. Coryell","note":"It was probably first prepared at the Ohio State University in 1942 by bombarding neodymium and praseodymium with neutrons, but separation of the element could not be carried out. Isolation was performed under the Manhattan Project in 1945. Widely known isolation: 1963 by F. Weigel.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Promethium"},
+  Sm: {"year":"1879","by":"P.E.L. de Boisbaudran","note":"Boisbaudran noted a new earth in samarskite and named it samaria after the mineral. Widely known isolation: 1903 by W. Muthmann.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Samarium"},
+  Eu: {"year":"1896","by":"E.-A. Demarçay","note":"Demarçay found spectral lines of a new element in Lecoq's samarium, provisionally designated the element as Σ, and gave it its present name in 1901. Metallic europium was isolated in 1937. Widely known isolation: 1937 by W. Klemm and H. Bommer.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Europium"},
+  Gd: {"year":"1880","by":"J. C. G. de Marignac","note":"Marignac initially observed the new earth in terbia, and later Boisbaudran obtained a pure sample from samarskite. Widely known isolation: 1935 by Félix Trombe.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Gadolinium"},
+  Tb: {"year":"1843","by":"G. Mosander","note":" Widely known isolation: 1937 by W. Klemm and H. Bommer.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Terbium"},
+  Dy: {"year":"1886","by":"P.E.L. de Boisbaudran","note":"De Boisbaudran found a new earth in erbia. Widely known isolation: 1937 by W. Klemm and H. Bommer.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Dysprosium"},
+  Ho: {"year":"1878","by":"J.-L. Soret and M. Delafontaine","note":"Soret found it in samarskite and later, Per Teodor Cleve split Marignac's erbia into erbia proper and two new elements, thulium and holmium. Delafontaine's philippium turned out to be identical to what Soret found. Widely known isolation: 1939 by H. Bommer.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Holmium"},
+  Er: {"year":"1843","by":"G. Mosander","note":" Mosander managed to split the old yttria into yttria proper, erbia, and terbia. The names underwent some confusion: Mosander's erbia was yellow and his terbia was red. Widely known isolation: 1934 by W. Klemm and H. Bommer.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Erbium"},
+  Tm: {"year":"1879","by":"T. Cleve","note":"Cleve split Marignac's erbia into erbia proper and two new elements, thulium and holmium. Widely known isolation: 1936 by W. Klemm and H. Bommer.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Thulium"},
+  Yb: {"year":"1878","by":"J.C.G. de Marignac","note":"On 22 October 1878, Marignac reported splitting erbia (Mosander's terbia) into two new earths, erbia proper and ytterbia. Widely known isolation: 1936 by W. Klemm and H. Bommer.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Ytterbium"},
+  Lu: {"year":"1906","by":"C. A. von Welsbach and G. Urbain","note":"von Welsbach proved that the old ytterbium also contained a new element, which he named cassiopeium (he renamed the larger part of the old ytterbium to aldebaranium). Urbain also proved this at about the same time (von Welsbach's paper was published first, but Urbain sent his to the editor first), naming the new element lutetium and the old one neoytterbium (which later reverted to ytterbium). Widely known isolation: 1937 by W. Klemm and H. Bommer.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Lutetium"},
+  Hf: {"year":"1922","by":"D. Coster and G. von Hevesy","note":"Georges Urbain claimed to have found the element in rare-earth residues, while Vladimir Vernadsky independently found it in orthite. Neither claim was confirmed due to World War I, and neither could be confirmed later, as the chemistry they reported does not match that now known for hafnium. Widely known isolation: 1924 by Anton Eduard van Arkel and Jan Hendrik de Boer.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Hafnium"},
+  Ta: {"year":"1802","by":"G. Ekeberg","note":"Ekeberg found another element in minerals similar to columbite, and named it after Tantalus from Greek mythology because of its inability to be dissolved by acids (just as Tantalus was tantalised by water that receded when he tried to drink it). In 1809, W. Widely known isolation: 1864 by J.C.G. de Marignac.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Tantalum"},
+  W: {"year":"1781","by":"W. Scheele","note":"Scheele showed that scheelite (then called tungsten) was a salt of calcium with a new acid, which he called tungstic acid. The Elhuyars obtained tungstic acid from wolframite and reduced it with charcoal, naming the element \"volfram\". Widely known isolation: 1783 by J. and F. Elhuyar.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Tungsten"},
+  Re: {"year":"1908","by":"M. Ogawa","note":"Masataka Ogawa found it in thorianite in 1908, but assigned it as element 43 and named it nipponium. (Elements 43 and 75 are in the same group of the periodic table.) Because of the erroneous assignment, and because some of his key results were published only in Japanese, his claim was not widely recognised.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Rhenium"},
+  Os: {"year":"1803","by":"S. Tennant","note":" Tennant had been working on samples of South American platinum in parallel with Wollaston and discovered two new elements, which he named osmium and iridium, and published the iridium results in 1804. Collet-Descotils also found iridium the same year, but not osmium.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Osmium"},
+  Ir: {"year":"1803","by":"S. Tennant and H.-V. Collet-Descotils","note":" Widely known isolation: 1803 by S. Tennant.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Iridium"},
+  Pt: {"year":"c. 600 BC – AD 200","by":"Pre-Columbian South Americans","note":"Used by pre-Columbian Americans near modern-day Esmeraldas, Ecuador to produce artifacts of a white gold-platinum alloy, although precise dating is difficult. A small box from the burial of the Pharaoh Shepenupet II (died around 650 BC) was found to be decorated with gold-platinum hieroglyphics, but the Egyptians may not have recognised that there was platinum in their gold.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Platinum"},
+  Au: {"year":"40000 BC","by":"Earliest humans","note":"Small amounts of natural gold have been found in Spanish caves used during the late Paleolithic period, c. 40000 BC.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Gold"},
+  Hg: {"year":"1500 BC","by":"Egyptians","note":"Cinnabar (the most common mineral form of mercury(II) sulfide, HgS) was used as a pigment from prehistory, dating as far back as the 9th millennium BC in the Middle East. Cinnabar deposits in Turkey, exploited from 8000 years ago, also contain minor amounts of mercury metal.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Mercury"},
+  Tl: {"year":"1861","by":"W. Crookes","note":"Shortly after the discovery of rubidium, Crookes found a new green line in a selenium sample; later that year, Lamy found the element to be metallic. Widely known isolation: 1862 by C.-A. Lamy.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Thallium"},
+  Pb: {"year":"7000 BC","by":"Asia Minor","note":"It is believed that lead smelting began at least 9,000 years ago, and the oldest known artifact of lead is a statuette found at the temple of Osiris on the site of Abydos dated around 3800 BC. Recognised as an element by Guyton de Morveau, Lavoisier, Berthollet, and Fourcroy in 1787.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Lead"},
+  Bi: {"year":"","by":"European alchemists and Inca civilisation","note":"Bismuth was known since ancient times, but often confused with tin and lead, which are chemically similar. The Incas used bismuth (along with the usual copper and tin) in a special bronze alloy for knives, likely intentionally.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Bismuth"},
+  Po: {"year":"1898","by":"P. and M. Curie","note":"In an experiment done on 13 July 1898, the Curies noted an increased radioactivity in the uranium obtained from pitchblende, which they ascribed to an unknown element. Independently rediscovered and isolated in 1902 by Marckwald, who named it radiotellurium. Widely known isolation: 1946 by W. H. Beamer and C. R. Maxwell.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Polonium"},
+  At: {"year":"1940","by":"D. R. Corson, K. R. MacKenzie and E. Segrè","note":"Obtained by bombarding bismuth with alpha particles. In 1943, Berta Karlik and Traude Bernert found it in nature; due to World War II, they were initially unaware of Corson et al.'s results.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Astatine"},
+  Rn: {"year":"1899","by":"E. Rutherford and R. B. Owens","note":"Rutherford and Owens discovered a radioactive gas resulting from the radioactive decay of thorium, isolated later by Ramsay and Gray. In 1900, Friedrich Ernst Dorn discovered a longer-lived isotope of the same gas from the radioactive decay of radium. Widely known isolation: 1910 by W. Ramsay and R. Whytlaw-Gray.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Radon"},
+  Fr: {"year":"1939","by":"M. Perey","note":"Perey discovered it as a decay product of 227Ac. Francium was the last element to be discovered in nature, rather than synthesized in the lab, although four of the \"synthetic\" elements that were discovered later (plutonium, neptunium, astatine, and promethium) were eventually found in trace amounts in nature as well.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Francium"},
+  Ra: {"year":"1898","by":"P. and M. Curie","note":"The Curies reported on 26 December 1898, a new element different from polonium, which Marie later isolated from uraninite. In September 1910, Marie Curie and André-Louis Debierne announced that they had isolated radium as a pure metal. Widely known isolation: 1910 by Marie Curie and André-Louis Debierne.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Radium"},
+  Ac: {"year":"1902","by":"F. O. Giesel","note":"Giesel obtained from pitchblende a substance that had properties similar to those of lanthanum and named it emanium. André-Louis Debierne had previously (in 1899 and 1900) reported the discovery of a new element actinium that was supposedly similar to titanium and thorium, which cannot have included much actual element 89. Widely known isolation: 1955 by Joseph G. Stites, Murrell L. Salutsky, Bob D. Stone.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Actinium"},
+  Th: {"year":"1829","by":"J. Berzelius","note":"Berzelius obtained a new earth (the oxide of a new element) in thorite. Widely known isolation: 1914 by D. Lely, Jr. and L. Hamburger.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Thorium"},
+  Pa: {"year":"1913","by":"K. Fajans and O. H. Göhring","note":"The two obtained the first isotope of this element, 234mPa, that had been predicted by Mendeleev in 1871, as a member of the natural decay of 238U: they named it brevium. A longer-lived isotope 231Pa was found in 1918 by Otto Hahn and Lise Meitner, and was named by them protactinium: since it is longer-lived, it gave the element its name. Widely known isolation: 1934 by A. von Grosse.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Protactinium"},
+  U: {"year":"1789","by":"H. Klaproth","note":"Klaproth mistakenly identified a uranium oxide obtained from pitchblende as the element itself and named it after the recently discovered planet Uranus. Widely known isolation: 1841 by E.-M. Péligot.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Uranium"},
+  Np: {"year":"1940","by":"E.M. McMillan and H. Abelson","note":"Obtained by irradiating uranium with neutrons, it was the first transuranium element discovered. Shortly before that, Yoshio Nishina and Kenjiro Kimura discovered the uranium isotope 237U and found that it beta decays into 23793, but were unable to measure the activity of the element 93 product because its half-life was too long. Widely known isolation: 1945 by S. Fried.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Neptunium"},
+  Pu: {"year":"1941","by":"Glenn T. Seaborg, Arthur C. Wahl, W. Kennedy and E.M. McMillan","note":"Prepared by bombardment of uranium with deuterons. Seaborg and Morris L. Widely known isolation: 1943 by H. L. Baumbach, S. Fried, P. L. Kirk and, R. S. Rosenfels.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Plutonium"},
+  Am: {"year":"1944","by":"G. T. Seaborg, R. A. James, O. Morgan and A. Ghiorso","note":"Prepared by irradiating plutonium with neutrons during the Manhattan Project. Americium metal was produced in 1951 by reduction of AmF3 with barium. Widely known isolation: 1951 by Edgar F. Westrum Jr. and LeRoy Eyring.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Americium"},
+  Cm: {"year":"1944","by":"Glenn T. Seaborg, Ralph A. James and Albert Ghiorso","note":"Prepared by bombarding plutonium with alpha particles during the Manhattan Project. Curium metal was produced in 1950 by reduction of CmF3 with barium. Widely known isolation: 1950 by J. C. Wallmann, W. W. T. Crane and B. B. Cunningham.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Curium"},
+  Bk: {"year":"1949","by":"G. Thompson, A. Ghiorso and G. T. Seaborg (University of California, Berkeley)","note":"Created by bombardment of americium with alpha particles. Widely known isolation: 1969 by J. R. Peterson, J. A. Fahey, and R. D. Baybarz.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Berkelium"},
+  Cf: {"year":"1950","by":"S. G. Thompson, K. Street, Jr., A. Ghiorso and G. T. Seaborg (University of California, Berkeley)","note":"Bombardment of curium with alpha particles. Californium metal was produced in 1974 by reduction of Cf2O3 with lanthanum. Widely known isolation: 1974 by R. G. Haire and R. D. Baybarz.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Californium"},
+  Es: {"year":"1952","by":"A. Ghiorso et al. (Argonne Laboratory, Los Alamos Laboratory and University of California, Berkeley)","note":"Formed in the first thermonuclear explosion in November 1952, by irradiation of uranium with neutrons; kept secret for several years. Einsteinium metal was produced in 1979 by reduction of Es2O3 with lanthanum. Widely known isolation: 1979 by R. G. Haire and R. D. Baybarz.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Einsteinium"},
+  Fm: {"year":"1953","by":"A. Ghiorso et al. (Argonne Laboratory, Los Alamos Laboratory and University of California, Berkeley)","note":"Formed in the first thermonuclear explosion in November 1952, by irradiation of uranium with neutrons; first identified in early 1953; kept secret for several years.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Fermium"},
+  Md: {"year":"1955","by":"A. Ghiorso, G. Harvey, G. R. Choppin, S. G. Thompson and G. T. Seaborg (Berkeley Radiation Laboratory)","note":"Prepared by bombardment of einsteinium with alpha particles.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Mendelevium"},
+  No: {"year":"1965","by":"E. D. Donets, V. A. Shchegolev and V. A. Ermakov (JINR in Dubna)","note":"First prepared by bombardment of uranium with neon atoms. Its discovery was originally claimed by the Nobel Institute for Physics in 1957; although the claim was later retracted, their proposed name nobelium remains in use.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Nobelium"},
+  Lr: {"year":"1961","by":"A. Ghiorso, T. Sikkeland, E. Larsh and M. Latimer (Berkeley Radiation Laboratory)","note":"First prepared by bombardment of californium with boron atoms.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Lawrencium"},
+  Rf: {"year":"1969","by":"A. Ghiorso et al. (Berkeley Radiation Laboratory) and I. Zvara et al. (JINR in Dubna)","note":"Prepared by bombardment of californium with carbon atoms by Albert Ghiorso's team and by bombardment of plutonium with neon atoms by Zvara's team. JINR originally claimed the discovery in 1964 and named the element kurchatovium, but this result was later discredited.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Rutherfordium"},
+  Db: {"year":"1970","by":"A. Ghiorso et al. (Berkeley Radiation Laboratory) and V. A. Druin et al. (JINR in Dubna)","note":"Prepared by bombardment of californium with nitrogen atoms by Ghiorso's team and by bombardment of americium with neon atoms by Druin's team. JINR originally claimed the discovery in 1968 and named the element nielsbohrium, but this result was later discredited.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Dubnium"},
+  Sg: {"year":"1974","by":"A. Ghiorso et al. (Berkeley Radiation Laboratory)","note":"Prepared by bombardment of californium with oxygen atoms. JINR originally claimed the discovery in 1974, but this result was later discredited.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Seaborgium"},
+  Bh: {"year":"1981","by":"G.Münzenberg et al. (GSI in Darmstadt)","note":"Obtained by bombarding bismuth with chromium.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Bohrium"},
+  Hs: {"year":"1984","by":"G. Münzenberg, P. Armbruster et al. (GSI in Darmstadt)","note":"Prepared by bombardment of lead with iron atoms","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Hassium"},
+  Mt: {"year":"1982","by":"G. Münzenberg, P. Armbruster et al. (GSI in Darmstadt)","note":"Prepared by bombardment of bismuth with iron atoms.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Meitnerium"},
+  Ds: {"year":"1994","by":"S. Hofmann et al. (GSI in Darmstadt)","note":"Prepared by bombardment of lead with nickel","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Darmstadtium"},
+  Rg: {"year":"1994","by":"S. Hofmann et al. (GSI in Darmstadt)","note":"Prepared by bombardment of bismuth with nickel","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Roentgenium"},
+  Cn: {"year":"1996","by":"S. Hofmann et al. (GSI in Darmstadt)","note":"Prepared by bombardment of lead with zinc.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Copernicium"},
+  Nh: {"year":"2003–2004","by":"Y. Oganessian et al. (JINR in Dubna) and K. Morita et al. (RIKEN in Wako, Japan)","note":"Prepared by decay of moscovium by Oganessian's team and bombardment of bismuth with zinc by Morita's team. Both teams began their experiments in 2003; Oganessian's team detected its first atom in 2003, but Morita's only in 2004.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Nihonium"},
+  Fl: {"year":"1999","by":"Y. Oganessian et al. (JINR in Dubna)","note":"Prepared by bombardment of plutonium with calcium. It may have already been found at Dubna in 1998, but that result has not been confirmed.","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Flerovium"},
+  Mc: {"year":"2003","by":"Y. Oganessian et al. (JINR in Dubna)","note":"Prepared by bombardment of americium with calcium","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Moscovium"},
+  Lv: {"year":"2000","by":"Y. Oganessian et al. (JINR in Dubna)","note":"Prepared by bombardment of curium with calcium","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Livermorium"},
+  Ts: {"year":"2009","by":"Y. Oganessian et al. (JINR in Dubna)","note":"Prepared by bombardment of berkelium with calcium","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Tennessine"},
+  Og: {"year":"2002","by":"Y. Oganessian et al. (JINR in Dubna)","note":"Prepared by bombardment of californium with calcium","sourceUrl":"https://en.wikipedia.org/wiki/Timeline_of_chemical_element_discoveries","elementSourceUrl":"https://pubchem.ncbi.nlm.nih.gov/element/Oganesson"}
+};
 
 const representativeMassNumbers: Record<string, number> = {
   Tc: 97,
@@ -2914,9 +2802,15 @@ const representativeMassNumbers: Record<string, number> = {
 export const elements: ElementRecord[] = rawElements.map((element) => {
   const radiusPm = normalizeRadiusPm(element);
   const massNumber = representativeMassNumbers[element.symbol] ?? Math.round(element.atomicMass);
+  const discovery = discoveryRecords[element.symbol];
 
   return {
     ...element,
+    discoveryYear: discovery.year,
+    discoveredBy: discovery.by,
+    discoveryNote: discovery.note,
+    discoverySourceUrl: discovery.sourceUrl,
+    elementSourceUrl: discovery.elementSourceUrl,
     radiusPm,
     radiusScale: getRadiusScale(radiusPm),
     shells: getElectronShellsFromConfiguration(element.electronConfiguration),
@@ -2928,7 +2822,7 @@ export const elements: ElementRecord[] = rawElements.map((element) => {
 
 export const elementBySymbol = new Map(elements.map((element) => [element.symbol, element]));
 
-export const labPalette = ["H", "C", "N", "O", "S", "Cl", "Na"];
+export const labPalette = ["H", "C", "N", "O", "S", "F", "Cl", "Na"];
 
 export function getElement(symbol: string): ElementRecord {
   const element = elementBySymbol.get(symbol);

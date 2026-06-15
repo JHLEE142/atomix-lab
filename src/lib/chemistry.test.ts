@@ -53,6 +53,19 @@ describe("chemistry helpers", () => {
     });
   });
 
+  it("covers a broader set of sourced classroom molecule recipes", () => {
+    expect(MOLECULE_RECIPES.length).toBeGreaterThanOrEqual(20);
+    for (const recipe of MOLECULE_RECIPES) {
+      expect(recipe.sourceUrl, `${recipe.id} source`).toMatch(/^https:\/\//);
+    }
+    expect(identifyMolecule(["H", "Cl"])).toMatchObject({ formula: "HCl", name: "Hydrogen Chloride" });
+    expect(identifyMolecule(["C", "O"])).toMatchObject({ formula: "CO", name: "Carbon Monoxide" });
+    expect(identifyMolecule(["C", "H", "H", "H", "H", "O"])).toMatchObject({
+      formula: "CH3OH",
+      name: "Methanol"
+    });
+  });
+
   it("returns null for unsupported combinations", () => {
     expect(identifyMolecule(["Na", "O"])).toBeNull();
   });

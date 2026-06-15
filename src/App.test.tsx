@@ -27,13 +27,14 @@ vi.mock("./components/LabScene", () => ({
 }));
 
 describe("App experiment flow", () => {
-  it("opens the lab with today's water experiment when the challenge start button is clicked", () => {
+  it("opens the lab with a rotating sourced experiment when the challenge start button is clicked", () => {
     render(<App />);
 
     fireEvent.click(screen.getByRole("button", { name: /시작하기/i }));
 
     expect(screen.getByRole("heading", { name: "분자 결합 실험실" })).toBeInTheDocument();
-    expect(screen.getByText("오늘의 실험: H₂O 만들기")).toBeInTheDocument();
-    expect(screen.getByText("수소 두 개와 산소 하나를 직접 추가해 물 분자를 완성하세요.")).toBeInTheDocument();
+    expect(screen.getByText(/^오늘의 실험:/)).toBeInTheDocument();
+    expect(screen.getByText(/레시피에 맞춰 필요한 원자들을 추가하세요/)).toBeInTheDocument();
+    expect(screen.getByLabelText("Target atoms").querySelectorAll("span").length).toBeGreaterThan(0);
   });
 });

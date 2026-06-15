@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft, FlaskConical, RotateCcw, Undo2 } from "lucide-react";
+import { ArrowLeft, ExternalLink, FlaskConical, RotateCcw, Undo2 } from "lucide-react";
 import { useMemo, useState } from "react";
 import { getElement, labPalette, type ElementRecord } from "../data/elements";
 import { buildFormula, identifyMolecule, summarizeAtoms } from "../lib/chemistry";
@@ -23,11 +23,11 @@ type LabWorkspaceProps = {
 export function LabWorkspace({ language, activeExperiment, selectedElement, onSelectElement }: LabWorkspaceProps) {
   const [selectedAtoms, setSelectedAtoms] = useState<string[]>([]);
   const molecule = useMemo(() => identifyMolecule(selectedAtoms), [selectedAtoms]);
-  const selectedFormula = selectedAtoms.length ? buildFormula(summarizeAtoms(selectedAtoms)) : "Ø";
+  const selectedFormula = molecule?.formula ?? (selectedAtoms.length ? buildFormula(summarizeAtoms(selectedAtoms)) : "Ø");
 
   function addAtom(symbol: string) {
     setSelectedAtoms((current) => {
-      if (current.length >= 5) return current;
+      if (current.length >= 9) return current;
       return [...current, symbol];
     });
   }
@@ -147,6 +147,10 @@ export function LabWorkspace({ language, activeExperiment, selectedElement, onSe
               >
                 You made {molecule.name} ({formatFormula(molecule.formula)})
                 <small>{molecule.description}</small>
+                <a className="source-link success-source" href={molecule.sourceUrl} target="_blank" rel="noreferrer">
+                  <ExternalLink size={13} />
+                  조합 근거
+                </a>
               </motion.div>
             ) : null}
           </AnimatePresence>
@@ -158,11 +162,9 @@ export function LabWorkspace({ language, activeExperiment, selectedElement, onSe
             {selectedElement.symbol} 원자 구조 보기
           </button>
           <div className="recipe-hints">
-            <span>H2O</span>
-            <span>CO2</span>
-            <span>NH3</span>
-            <span>CH4</span>
-            <span>NaCl</span>
+            {["H2O", "CO2", "NH3", "CH4", "NaCl", "HCl", "CO", "SO2", "CH3OH", "C2H5OH"].map((formula) => (
+              <span key={formula}>{formula}</span>
+            ))}
           </div>
         </div>
       </section>
@@ -175,8 +177,10 @@ function formatGeometryLabel(geometry: string): string {
     linear: "선형",
     bent: "굽은형",
     "trigonal-pyramidal": "삼각뿔형",
+    "trigonal-planar": "평면삼각형",
     tetrahedral: "정사면체형",
     diatomic: "이원자 분자",
+    chain: "사슬형 단순화 모형",
     "ionic-pair": "이온쌍 단순화 모형"
   };
 

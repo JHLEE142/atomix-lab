@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Atom, BookOpen, CircleDot, FlaskConical, Sparkles, Table2 } from "lucide-react";
+import { ArrowRight, Atom, BookOpen, CircleDot, ExternalLink, FlaskConical, Sparkles, Table2 } from "lucide-react";
 import { AtomScene } from "./AtomScene";
 import type { ElementRecord } from "../data/elements";
 
@@ -28,10 +28,6 @@ export function Dashboard({
 }: DashboardProps) {
   const localizedName = language === "ko" ? element.koreanName : element.name;
   const radiusScale = Math.min(100, Math.max(6, element.radiusScale));
-  const discoveredByLabel =
-    element.discoveredBy === "PubChem source record" ? "기초 원소 데이터" : element.discoveredBy;
-  const discoveryNote =
-    element.discoveredBy === "PubChem source record" ? "발견자 세부 기록은 별도 검증 필요" : "발견 및 분리 기록";
 
   return (
     <section className="dashboard-grid">
@@ -181,8 +177,18 @@ export function Dashboard({
         <ol className="timeline">
           <li>
             <time>{element.discoveryYear}</time>
-            <strong>{discoveredByLabel}</strong>
-            <span>{discoveryNote}</span>
+            <strong>{element.discoveredBy}</strong>
+            <span>{element.discoveryNote}</span>
+            <div className="source-link-row">
+              <a className="source-link" href={element.discoverySourceUrl} target="_blank" rel="noreferrer">
+                <ExternalLink size={13} />
+                발견 근거
+              </a>
+              <a className="source-link" href={element.elementSourceUrl} target="_blank" rel="noreferrer">
+                <ExternalLink size={13} />
+                원소 자료
+              </a>
+            </div>
           </li>
           <li>
             <time>Atomic #{element.atomicNumber}</time>

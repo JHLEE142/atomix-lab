@@ -5,6 +5,7 @@ import { Dashboard } from "./components/Dashboard";
 import { LabWorkspace, type ExperimentChallenge } from "./components/LabWorkspace";
 import { PeriodicTableOverlay } from "./components/PeriodicTableOverlay";
 import { elements, getElement } from "./data/elements";
+import { MOLECULE_RECIPES } from "./lib/chemistry";
 
 type AppMode = "atoms" | "molecules" | "quiz" | "lab";
 type Language = "ko" | "en";
@@ -16,13 +17,18 @@ const navItems: Array<{ id: AppMode; label: string; icon: typeof Atom }> = [
   { id: "lab", label: "실험실", icon: FlaskConical }
 ];
 
-const todayExperiment: ExperimentChallenge = {
-  id: "water",
-  title: "오늘의 실험: H₂O 만들기",
-  description: "수소 두 개와 산소 하나를 직접 추가해 물 분자를 완성하세요.",
-  targetFormula: "H2O",
-  targetAtoms: ["H", "O", "H"]
-};
+const experimentRecipeIds = [
+  "water",
+  "carbon-dioxide",
+  "ammonia",
+  "methane",
+  "hydrogen-chloride",
+  "carbon-monoxide",
+  "sulfur-dioxide",
+  "hydrogen-peroxide",
+  "methanol",
+  "sodium-hydroxide"
+];
 
 export default function App() {
   const [selectedSymbol, setSelectedSymbol] = useState("O");
@@ -33,6 +39,7 @@ export default function App() {
   const [activeExperiment, setActiveExperiment] = useState<ExperimentChallenge | null>(null);
 
   const selectedElement = useMemo(() => getElement(selectedSymbol), [selectedSymbol]);
+  const todayExperiment = useMemo(() => getTodayExperiment(), []);
   const labActive = mode === "lab" || mode === "molecules";
 
   return (
@@ -168,4 +175,21 @@ export default function App() {
       />
     </div>
   );
+}
+
+function getTodayExperiment(): ExperimentChallenge {
+  const dayIndex = Math.floor(Date.now() / 86_400_000);
+  const recipeId = experimentRecipeIds[dayIndex % experimentRecipeIds.length];
+  const recipe = MOLECULE_RECIPES.find((item) => item.id === recipeId) ?? MOLECULE_RECIPES[0];
+  return {
+    id: recipe.id,
+    title: `오늘의 실험: ${recipe.formula} 만들기`,
+    description: `${recipe.koreanName}(${recipe.name}) 레시피에 맞춰 필요한 원자들을 추가하세요.`,
+    targetFormula: recipe.formula,
+    targetAtoms: recipeAtoms(recipe.atoms)
+  };
+}
+
+function recipeAtoms(atoms: Record<string, number>): string[] {
+  return Object.entries(atoms).flatMap(([symbol, count]) => Array.from({ length: count }, () => symbol));
 }

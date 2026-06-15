@@ -442,6 +442,32 @@ button {
   font-size: 14px;
 }
 
+.source-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding-top: 4px;
+}
+
+.source-link {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid rgba(103, 232, 249, 0.24);
+  background: rgba(103, 232, 249, 0.08);
+  padding: 0 9px;
+  color: #bae6fd;
+  font-size: 12px;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.source-link:hover {
+  border-color: rgba(103, 232, 249, 0.5);
+  background: rgba(103, 232, 249, 0.14);
+}
+
 .challenge-card {
   display: grid;
   gap: 14px;
@@ -624,6 +650,12 @@ button {
   font-size: 11px;
   font-weight: 650;
   line-height: 1.35;
+}
+
+.success-source {
+  width: fit-content;
+  margin-top: 3px;
+  color: #ecfeff;
 }
 
 .lab-footer {

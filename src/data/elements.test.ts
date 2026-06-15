@@ -27,6 +27,10 @@ describe("periodic table element data", () => {
       expect(element.neutrons, `${element.symbol} representative neutron count`).toBe(
         element.massNumber - element.atomicNumber
       );
+      expect(element.discoveredBy, `${element.symbol} discovery credit`).not.toBe("PubChem source record");
+      expect(element.discoveryNote, `${element.symbol} discovery note`).toBeTruthy();
+      expect(element.discoverySourceUrl, `${element.symbol} discovery source`).toContain("Timeline_of_chemical_element_discoveries");
+      expect(element.elementSourceUrl, `${element.symbol} element source`).toContain("pubchem.ncbi.nlm.nih.gov");
     }
   });
 
